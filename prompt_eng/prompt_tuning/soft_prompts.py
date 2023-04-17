@@ -53,11 +53,11 @@ class T5PromptTuning(T5ForConditionalGeneration):
         self.prompt_length = prompt_length
         self.prompt_embeddings = torch.nn.Embedding(prompt_length, config.d_model)
 
-        # Freeze the model parameters
+        # freeze the model parameters÷
         for param in self.parameters():
             param.requires_grad = False
 
-        # Only train the prompt_embeddings
+        # only train the prompt_embeddings
         for param in self.prompt_embeddings.parameters():
             param.requires_grad = True
 
