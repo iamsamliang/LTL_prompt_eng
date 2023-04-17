@@ -1,0 +1,7 @@
+Model_output, Ground_truth, LTL_type, Num_props, Instruction
+& U ! b a & U ! c b & U ! d c & U ! h d F h,F & a F & b F & c F & d F h,sequenced_visit,5,visit b at least once after visiting a visit c at least once after visiting both a and b visit d at least once after visiting a b and c and visit h at least once after visiting a b c and d
+F & a F & b F & c F d,& U ! b a & U ! c b & U ! d c F d,ordered_visit,4,first go directly to a without visiting any other waypoints then go directly to b then directly to c and finally directly to d
+F & a F & b F & c F d,& U ! b a & U ! c b & U ! d c F d,ordered_visit,4,visit a b c d in that specific order
+& & U ! b a & U ! c b & U ! d c F d & U ! a U a U ! a b & U ! b U b U ! b c U ! c U c U ! c d,& U ! b a & U ! c b & U ! d c F d,ordered_visit,4,go to a but not through b c or d and then go to b but not through c or d and then go to c but not through d and finally go to d
+G (F a U F b),& G F a G F b,patrolling,2,keep going between a and b
+Accuracy: 0.7333333333333333

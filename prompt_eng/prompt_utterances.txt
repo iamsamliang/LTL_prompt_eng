@@ -1,0 +1,11 @@
+visit c but only after visiting b and visit b only after visiting a,& U ! b a & U ! c b F c - done
+
+do not go to d until c is visited and do not go to c until b is visited and do not go to b until a is visited,& U ! b a & U ! c b & U ! d c F d - done
+
+make sure a b and c are visited infinitely,& G F a & G F b G F c - done
+
+go to a then go to b then go to c,F & a F & b F c - done
+
+go to c after b go to b after going to a,F & a F & b F c - done
+
+visit a and b in any order,& F a F b - done

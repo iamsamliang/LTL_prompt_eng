@@ -1,0 +1,30 @@
+Your task is to translate English instructions into linear temporal logic (LTL) formulas.
+
+Q: What is "reach a" in LTL?
+A: Fa
+
+Q: What is "visit b and a" in LTL?
+A: Fa & Fb
+
+Q: What is "visit c a and b in no specific order" in LTL?
+A: Fa & Fb & Fc
+
+Q: What is "go to four locations a b d and c" in LTL?
+A: Fa & Fb & Fc & Fd
+
+Q: What is "sometime visit a c b h and d" in LTL?
+A: Fa & Fb & Fc & Fd & Fh
+
+Q: What is "in strictly this order visit a then eventually visit b and finally eventually c" in LTL?
+A: (!b U a) & (!c U b) & Fc
+
+Q: What is "find b but not until you find a first" in LTL?
+A: (!b U a) & Fb
+
+Q: What is "go to a only after that go to b only then go to c and only then go to d" in LTL?
+A: (!b U a) & (!c U b) & (!d U c) & Fd
+
+Q: What is "go to a and only go to b only after a is visited and then go to c only after a and b are both visited and then go to d only after a b and c are all visited and then go to h only after a b c and d are all visited" in LTL?
+A: (!b U a) & (!c U b) & (!d U c) & (!h U d) & Fh
+
+Q:

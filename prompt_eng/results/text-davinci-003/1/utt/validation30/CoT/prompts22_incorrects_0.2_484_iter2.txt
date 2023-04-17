@@ -1,0 +1,10 @@
+Model_output, Ground_truth, LTL_type, Num_props, Instruction
+(!b U a) & Fb,F & a F b,sequenced_visit,2,after you have been to a make your way to b - ambiguous
+
+(!b U a) & (!c U b) & (!d U c) & (!h U d) & Fh,F & a F & b F & c F & d F h,sequenced_visit,5,visit b at least once after visiting a visit c at least once after visiting both a and b visit d at least once after visiting a b and c and visit h at least once after visiting a b c and d - ambiguous
+
+(!b U a) & (!c U b) & Fc & (!a U (a U (!a U b))) & (!b U (b U (!b U c))) & (!c U (c U (!c U d))),& & U ! b a & U ! c b F c & U ! a U a U ! a b U ! b U b U ! b c,strictly_ordered_visit,3,visit a exactly once avoid b or c before a then reach b exactly once  avoid c before b finally move to c - Wrong reasoning
+
+(!b U a) & (!c U b) & (!d U c) & (!h U d) & Fh & (!a U (a U (!a U b))) & (!b U (b U (!b U c))) & (!c U (c U (!c U d))) & (!d U (d U (!d , & & U ! b a & U ! c b & U ! d c & U ! h d F h & U ! a U a U ! a b & U ! b U b U ! b c & U ! c U c U ! c d U ! d U d U ! d h - Ran out of tokens
+
+Accuracy: 0.8666666666666667

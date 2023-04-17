@@ -1,0 +1,22 @@
+import re
+import pickle
+
+paths = []
+for i in range(2):
+  paths.append(f"data/prompts_batch1_noperm/prompt_nexamples1_symbolic_batch1_noperm_ltl_type_2_123_fold{i}.txt")
+
+for i, path in enumerate(paths):
+  print(path)
+  sentences = []
+  with open(path, 'r') as f:
+      lines = f.readlines()
+      for line in lines:
+          if line.startswith('Q:'):
+              match = re.search('"([^"]+)"', line)
+              if match:
+                  sentence = match.group(1)
+                  sentences.append(sentence)
+
+  with open(f'forbidden_type_fold{i}.pkl', 'wb') as f:
+      # Write the array to the file using pickle.dump()
+      pickle.dump(sentences, f)

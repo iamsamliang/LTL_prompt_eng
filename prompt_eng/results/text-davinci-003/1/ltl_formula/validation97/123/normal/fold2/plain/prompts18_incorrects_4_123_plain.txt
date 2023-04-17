@@ -1,0 +1,17 @@
+Parsed_output, Ground_truth, LTL_type, Num_props, Instruction, Model_output
+
+F(a & F(b & F(c & Fd))) & (!a U (a U (!a U b))) & (!b U (b U (!b U c))) & (!c U (c U (!c U d))), & & U ! b a & U ! c b & U ! d c F d & U ! a U a U ! a b & U ! b U b U ! b c U ! c U c U ! c d, strictly_ordered_visit, 4, visit a b c and d in this order without skipping any one of them do not revisit any one of them once after you have been there, F(a & F(b & F(c & Fd))) & (!a U (a U (!a U b))) & (!b U (b U (!b U c))) & (!c U (c U (!c U d)))
+
+F(a & F(b & F(c & Fd))), & & U ! b a & U ! c b & U ! d c F d & U ! a U a U ! a b & U ! b U b U ! b c U ! c U c U ! c d, strictly_ordered_visit, 4, head to a b c and d in this order without skipping or revisiting any one of them, F(a & F(b & F(c & Fd)))
+
+F(a & F(b & F(c & Fd))) & (!a U (a U (!a U b))) & (!b U (b U (!b U c))) & (!c U (c U (!c U d))), & & U ! b a & U ! c b & U ! d c F d & U ! a U a U ! a b & U ! b U b U ! b c U ! c U c U ! c d, strictly_ordered_visit, 4, visit each of a b c and d exactly once in this order, F(a & F(b & F(c & Fd))) & (!a U (a U (!a U b))) & (!b U (b U (!b U c))) & (!c U (c U (!c U d)))
+
+(!b U a) & (!c U b) & (!d U c) & Fd & (!a U (a U (!a U b))) & (!b U (b U (!b U c))), & & U ! b a & U ! c b & U ! d c F d & U ! a U a U ! a b & U ! b U b U ! b c U ! c U c U ! c d, strictly_ordered_visit, 4, visit a only once while avoiding b then visit b once while avoiding c only after visiting c once visit d, (!b U a) & (!c U b) & (!d U c) & Fd & (!a U (a U (!a U b))) & (!b U (b U (!b U c)))
+
+F(a & F(b & F(c & Fd))) & (!a U (a U (!a U b))) & (!b U (b U (!b U c))) & (!c U (c U (!c U d))), & & U ! b a & U ! c b & U ! d c F d & U ! a U a U ! a b & U ! b U b U ! b c U ! c U c U ! c d, strictly_ordered_visit, 4, please go to a then b then c then d in that specific order without revisiting previously visited location, F(a & F(b & F(c & Fd))) & (!a U (a U (!a U b))) & (!b U (b U (!b U c))) & (!c U (c U (!c U d)))
+
+(!c U a) & (!d U b) & Fc & Fd & (!a U (a U (!a U b))) & (!b U (b U (!b U c))) & (!c U (c U (!c U d))), & & U ! b a & U ! c b & U ! d c F d & U ! a U a U ! a b & U ! b U b U ! b c U ! c U c U ! c d, strictly_ordered_visit, 4, first go to a once then go to b once while avoiding c then go to c once while avoiding d finally go to d, (!c U a) & (!d U b) & Fc & Fd & (!a U (a U (!a U b))) & (!b U (b U (!b U c))) & (!c U (c U (!c U d)))
+
+F(a & F(b & F(c & Fd))) & (!a U (a U (!a U b))) & (!b U (b U (!b U c))) & (!c U (c U (!c U d))), & & U ! b a & U ! c b & U ! d c F d & U ! a U a U ! a b & U ! b U b U ! b c U ! c U c U ! c d, strictly_ordered_visit, 4, visit a then b then c and then d in that strict order without returning to previously visited locations, F(a & F(b & F(c & Fd))) & (!a U (a U (!a U b))) & (!b U (b U (!b U c))) & (!c U (c U (!c U d)))
+
+Accuracy: 0.9278350515463918

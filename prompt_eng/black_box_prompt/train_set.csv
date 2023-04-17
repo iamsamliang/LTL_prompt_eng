@@ -1,0 +1,324 @@
+instruction,label
+go to a,visit
+stop at a,visit
+eventually you must go to a,visit
+walk to a,visit
+reach a,visit
+navigate to a,visit
+reach a,visit
+visit a,visit
+head to a,visit
+make sure you visit a at least once,visit
+go to a,visit
+reach a,visit
+make your way to a,visit
+approach a,visit
+visit a,visit
+find a,visit
+go to b and a in any order,visit
+go to a and b,visit
+go to one of a and b and then to the other,visit
+sometime along the way go to a and b,visit
+visit a and b,visit
+go to a and b in any order,visit
+move to a and b in any order,visit
+visit b and a,visit
+go to a and b in any order,visit
+visit both a and b,visit
+make sure to go to both a and b,visit
+go to a then go to b or go to b then go to a,visit
+go to a and go to b,visit
+make sure both a and b are visited,visit
+reach a and b in any order,visit
+visit a and b,visit
+visit a and b,visit
+you must go to c a and b at least once ,visit
+go to a b and c,visit
+eventually reach a c and b,visit
+move to a b and c in any order,visit
+visit a b and c in any order,visit
+walk to a b and c in an arbitrary order,visit
+visit c a and b in no specific order,visit
+go to a b and c,visit
+visit a b and c in any order,visit
+go to all of a b and c ,visit
+go to a b and c in any order,visit
+make sure a b and c are all visited,visit
+when you have the chance can you go to a c and b ,visit
+visit a b and c in arbitrary order,visit
+please visit a b and c in any order,visit
+make sure a b and c are all visited,visit
+visit a go to b reach c reach d,visit
+stop by a b c and d in any order,visit
+go to a go to b go to c and go to d,visit
+reach all the following locations a b c and d,visit
+in no particular order visit a b c and d,visit
+go to b d a and c in any order,visit
+move to a b c and d in any order,visit
+please visit each of d c b and a,visit
+go to four locations a b d and c,visit
+do not stop until a b c and d are all visited,visit
+make your way to a b c and d,visit
+move to a b c and d in any order,visit
+visit a d c and b on your travels,visit
+make sure a b c and d are all visited,visit
+visit b a c and d,visit
+make sure you go to a b c d h in any order,visit
+go to a b c d and h in arbitrary order,visit
+visit a b c d and h in no specific order,visit
+reach a b c d and h in any order,visit
+eventually go visit a b h d and c,visit
+visit a b c d and h in any order,visit
+make sure a b c d and h are all visited,visit
+go to b a h c and d ,visit
+sometime visit a c b h and d,visit
+visit all locations a b c d h,visit
+reach the following five locations a b c d h,visit
+find the following a b c d h,visit
+visit c a d h and b in no particular order,visit
+visit a b c d h in any order required,visit
+visit a b c d and h,visit
+visit a then visit b,sequenced_visit
+go to a then b,sequenced_visit
+go to a and then go to b,sequenced_visit
+go to a and sometime afterward visit b,sequenced_visit
+visit a visit b after that,sequenced_visit
+find a first then find b,sequenced_visit
+move a then find b,sequenced_visit
+visit a and then b,sequenced_visit
+go to a and then to b,sequenced_visit
+go to a then reach b,sequenced_visit
+make sure to go to b after you visit a,sequenced_visit
+visit a and visit b after a is visited,sequenced_visit
+go to b after going to a,sequenced_visit
+after you visit a go to b,sequenced_visit
+go to a then move to b,sequenced_visit
+go to a finally go to b,sequenced_visit
+eventually first visit a and then b after,sequenced_visit
+go to a then go to b then go to c,sequenced_visit
+visit b at least once after going to a and visit c at least once after going to b,sequenced_visit
+go to a and then go to b and then go to c,sequenced_visit
+reach a then reach b then reach c,sequenced_visit
+make your way to a b and c consecutively,sequenced_visit
+head to a b and c in order,sequenced_visit
+in some sequence visit a b and c in that order,sequenced_visit
+visit a sometime afterwards visit b sometime afterwards visit c,sequenced_visit
+go to a then head to b finally go to c,sequenced_visit
+go to a b c make sure to go to b after a and c after b,sequenced_visit
+go to a then b then c,sequenced_visit
+visit a b c one after the other,sequenced_visit
+reach a then reach b and then reach c,sequenced_visit
+move to a then move to b then move to c,sequenced_visit
+go to c after b go to b after going to a,sequenced_visit
+visit a then b then c,sequenced_visit
+you have to walk to a and then walk to b and then walk to c and finally walk to d,sequenced_visit
+first go to a then visit b then move to c finally reach d ,sequenced_visit
+visit b at least once after visiting a visit c at least once after visiting a and b visit d at least once after visiting a b and c,sequenced_visit
+go to a and then go to b and then go to c and then go to d,sequenced_visit
+go to a then b then c and then d,sequenced_visit
+go to a then go to b then go to c then go to d,sequenced_visit
+travel to a then travel to b then go to c then reach d,sequenced_visit
+eventually in some sequence visit a b c and d each must be followed by the next ,sequenced_visit
+visit a followed by b then b followed by c then c followed by d and then d,sequenced_visit
+visit a b c and d one after another,sequenced_visit
+go to a then go to b then go to c and then go to d,sequenced_visit
+visit a then visit b then visit c then visit d ,sequenced_visit
+ensure that you visit a b c and d in order,sequenced_visit
+visit a then b then c then d and finally h,sequenced_visit
+make sure a b c d and h are all visited in this order there can be other locations in between,sequenced_visit
+visit b after you visit a visit c after you visit b visit d after you visit c visit h after you visit d,sequenced_visit
+go to a then go to b then go to c then go to d then go to h,sequenced_visit
+visit a then visit b then visit c then visit d and then visit h,sequenced_visit
+first go to a then move to b then go visit c then visit d finally reach h,sequenced_visit
+go to a then go to b then go to c then go to d finally go to h,sequenced_visit
+visit a followed by b then b followed by c then c followed by d then d followed by h and then h,sequenced_visit
+visit a b c d and h sequentially,sequenced_visit
+go to a and then go to b and then go to c and then go to d and then go to h,sequenced_visit
+visit a b c d and h in this order there can be other locations in between,sequenced_visit
+head to a and then to b after a is visited and then to c after b is visited and then to d after c is visited and then to h after d is visited,sequenced_visit
+first make your way to a then you must go to b after that visit c then move to d finally reach h,sequenced_visit
+go to a then go to b and then reach c then reach d and finally go to h,sequenced_visit
+visit a b c d and h in this order there can be other landmarks in between,sequenced_visit
+visit a only then should you visit b and only after that should you reach c,ordered_visit
+first go to a while staying away from b then go to b while staying away from c finally visit c,ordered_visit
+visit a at least once then visit b at least once finally visit c do not visit b or c before a do not visit c before b,ordered_visit
+visit c but only after visiting b and visit b only after visiting a,ordered_visit
+direct yourself to a but keep away from b and c then go to b but bypass c and eventually make your way to c,ordered_visit
+visit a b and c where b does not proceed a and c does not proceed b,ordered_visit
+visit a first while avoiding b and then move to b while avoiding c then visit c,ordered_visit
+do not visit c until visiting b do not visit b until visiting a,ordered_visit
+go to a but not through b or c and then go to b but not through c and finally go to c,ordered_visit
+visit a b and c in order but keep avoiding latter ones when you are heading to former ones,ordered_visit
+go to a at least once while avoiding b and c then go to b at least once while avoiding c finally go to c,ordered_visit
+in strictly this order visit a then eventually visit b and finally eventually c,ordered_visit
+visit a at least once do not visit b or c before a then visit b at least once do not visit c before b finally visit c,ordered_visit
+first go to a once without visiting b then go to b,strictly_ordered_visit
+visit a first then visit b while only visiting each location once,strictly_ordered_visit
+visit a only once then visit b but do not visit b before visiting a,strictly_ordered_visit
+only visit a once then visit b only after visiting a,strictly_ordered_visit
+you must visit a exactly once while avoiding b then you can navigate to b,strictly_ordered_visit
+go to a and only then go to b without returning to a,strictly_ordered_visit
+go to a exactly once while avoiding b then go to b,strictly_ordered_visit
+only visit a once and do not visit b until you visit a ,strictly_ordered_visit
+visit a and only then reach b you can only visit a once,strictly_ordered_visit
+visit b but only after a also you cannot revisit a before completing the remaining tasks,strictly_ordered_visit
+visit a one time but not through b and head to b after a is visited but not through a,strictly_ordered_visit
+visit a and b in that exact sequence out of sequence visits and repeated visits are not permitted,strictly_ordered_visit
+reach a exactly once while staying away from b then move to b,strictly_ordered_visit
+visit a and visit only once then eventually visit b do not visit b before visiting a,strictly_ordered_visit
+go to a only then go to b but ensure to not revisit a,strictly_ordered_visit
+go to a only then go to b only then go to c while visiting a and b only once,strictly_ordered_visit
+go to a exactly once while avoiding b and c then go to b exactly once while avoiding c finally go to c,strictly_ordered_visit
+visit a b and c in this order without skipping any one of them do not revisit any one of them once after you have been there ,strictly_ordered_visit
+go to a but not through b or c and then go to b but not through c and finally go to c no revisiting is allowed ,strictly_ordered_visit
+visit a b and c once do not visit b without visiting a and do not visit c without visiting b,strictly_ordered_visit
+visit a exactly once while avoiding b and c then visit b exactly once while avoiding c finally visit c,strictly_ordered_visit
+visit a only once without visiting b then visit b one time without visiting c finally visit c in the future,strictly_ordered_visit
+do not visit c until you visit b visit b only once do no visit b until you visit a visit a only once,strictly_ordered_visit
+visit a exactly once do not visit b or c before a then visit b exactly once  do not visit c before b finally visit c,strictly_ordered_visit
+reach a first only then reach b and do not visit a again only then reach c and do not visit b again,strictly_ordered_visit
+visit b but before visiting b you must visit a only after that visit c visit each location once,strictly_ordered_visit
+go to a first go to b second and do not visit a again go to c third and do not visit b again ,strictly_ordered_visit
+go to a without visiting b then go to b without visiting c then go to c without visiting d finally go to d while only visiting each location once,strictly_ordered_visit
+visit a b c d once do not visit b without visiting a and do not visit b without visiting c do not visit d without visiting c,strictly_ordered_visit
+visit a b c and d in this order without skipping any one of them do not revisit any one of them once after you have been there ,strictly_ordered_visit
+go to a but not through b c or d and then go to b but not through c or d and then go to c but not through d and finally go to d no revisiting is allowed ,strictly_ordered_visit
+stay away from b c and d until you make a single visit to a and then make your way to b while staying away from a c and d and then make your way to c while staying away from a b or d and finally make your way to d while staying away from a b and c,strictly_ordered_visit
+visit a only once while avoiding b then visit b once while avoiding c only after visiting c once visit d,strictly_ordered_visit
+visit a one time but not through b c or d and then visit b once but not through a c or d and then visit c once but not through a b or d and then visit d once but not through a b or c,strictly_ordered_visit
+do not visit d until you visit c visit c only once do not visit c until you visit b visit b only once do no visit b until you visit a visit a only once,strictly_ordered_visit
+visit each of a b c and d exactly once in this order,strictly_ordered_visit
+please go to a then b then c then d in that specific order without revisiting previously visited location,strictly_ordered_visit
+go to a only once but keep away from b c and d and then go to b only once but keep away from a c and d and then go to c only once but keep way from a b and d and finally go to d once but keep away from a b and c,strictly_ordered_visit
+visit a then b then c and then d in that strict order without returning to previously visited locations,strictly_ordered_visit
+visit a while staying away from b then visit b while staying away from c then visit c while staying away from d then visit d while staying away from h finally reach h without returning to any previously visited locations,strictly_ordered_visit
+go to h but only after going to d only once go to d only after going to c only once go to c only after going to b only once and go to b only after going to a only once,strictly_ordered_visit
+first visit a while avoiding b then visit b while avoiding c then visit c while avoiding d then visit d while avoiding h finally visit h visit each location once,strictly_ordered_visit
+eventually visit a afterward eventually visit b afterward eventually visit c afterward eventually visit d afterward eventually visit h visit each landmark only once,strictly_ordered_visit
+visit a only once then eventually visit b only once then visit c in the future for one time followed by one visit to d and after that h,strictly_ordered_visit
+go to a without visiting b then go to b without visiting c third go to c without visiting d fourth go to d without visiting h finally go to h visit a b c and d only one time,strictly_ordered_visit
+before visiting b c d and h visit a and never visit it again then visit b before c d and h and never visit it again do not visit d and h until you visit c never visit c again then visit d before h and never visit h again finally visit h,strictly_ordered_visit
+don not stop visiting a b and c,strictly_ordered_visit
+do not visit h until you visit d visit d only once do not visit d until you visit c visit c only once do not visit c until you visit b visit b only once do no visit b until you visit a visit a only once,strictly_ordered_visit
+go to a only then go to b only then go to c only then go to d and only then go to h make sure to  not revisit any of the locations before completing the task,strictly_ordered_visit
+go to a but do not visit b c d or h and then go to b but do not visit c d or h or revisit a and then go to c but do not visit d or h or revisit a or b and then go to d but do not visit h or revisit a b or c and then go to h but do not revisit a b c or d,strictly_ordered_visit
+visit a b c d and h in that exact order once you leave any location you cannot return to it,strictly_ordered_visit
+visit a b c d and h in this order without skipping any one of them do not revisit any one of them once after you have been there ,strictly_ordered_visit
+visit a then b then c then d and then h visit each landmark only once,strictly_ordered_visit
+go to a while avoiding b and then go to b,ordered_visit
+visit a then visit b but do not visit b until you visit a,ordered_visit
+find a while avoiding b then after finding a go to b,ordered_visit
+go to a while avoiding b then go to b,ordered_visit
+go to a and then go to b but do not visit b before a is visited,ordered_visit
+visit a and visit b only if a is visited,ordered_visit
+find b but not until you find a first,ordered_visit
+go to b but do not go to b until you go to a first,ordered_visit
+go to a then b you cannot visit b before a,ordered_visit
+go from a to b do not go to b before visiting a,ordered_visit
+go to a but keep avoiding b and once you have been to a go to b,ordered_visit
+head to a first and then to b but do not visit b if you have not been to a,ordered_visit
+visit a and b but do not visit b without visiting a,ordered_visit
+go to a and only then go to b,ordered_visit
+visit a then eventually visit b do not visit b before visiting a,ordered_visit
+go to b but only visit b if you already visited a,ordered_visit
+make sure you frequent a infinitely,patrolling
+keep visiting a,patrolling
+continue to visit a,patrolling
+make sure a is visited infinitely,patrolling
+visit a an infinite number of times,patrolling
+patrol a repeatedly,patrolling
+always stop at a repeatedly,patrolling
+please visit a infinitely often,patrolling
+keep visiting a,patrolling
+keep on visiting a forever,patrolling
+go to a an infinite number of times,patrolling
+please keep visiting a,patrolling
+keep going to a,patrolling
+visit a infinitely often,patrolling
+keep visiting a forever,patrolling
+continue moving to a,patrolling
+visit a again and again,patrolling
+frequent a infinitely,patrolling
+go to a and only go to b only after a is visited and then go to c only after a and b are both visited and then go to d only after a b and c are all visited,ordered_visit
+do not visit successor without visiting the predecessor in the following strict order a b c and d,ordered_visit
+go to d but do not go to d until c is visited and do not go to c until b is visited and do not go to b until a is visited,ordered_visit
+visit a b c d in that specific order,ordered_visit
+visit a then b then c then d while ensuring not to visit b before a not to visit c before b not to visit d before c,ordered_visit
+go to a then b then c finally d you cannot visit b before a you cannot visit c before b you cannot visit d before c,ordered_visit
+visit a b c and d in this order without skipping any one of them,ordered_visit
+reach a without going to b then go to b without passing c then go to c without passing d finally go to d,ordered_visit
+make your way to d only after going to c before that make your way to c only after going to b before that make your way to b only after going to a,ordered_visit
+go to a but not through b c or d and then go to b but not through c or d and then go to c but not through d and finally go to d,ordered_visit
+visit a b c and d in that specific order make sure not to visit waypoints out of turn,ordered_visit
+go to a only after that go to b only then go to c and only then go to d,ordered_visit
+visit a while avoiding b visit b while avoiding c visit c while avoiding d visit d while avoiding h finally reach h,ordered_visit
+visit a b c d and h in this strict order once the predecessor is visited you must visit the successor,ordered_visit
+visit a do not visit b c d or h until you visit a then visit b do not visit c d or h until you visit b then visit c do not visit d or h until you visit c then visit d do not visit h until you visit d finally reach h  ,ordered_visit
+make your way to h only after going to d before that make your way to d only after going to c before that make your way to c only after going to b before that make your way to b only after going to a,ordered_visit
+visit a b c d and h in that specific order ensure to not visit locations out of turn,ordered_visit
+visit a b c d and h in this strict order once the predecessor is visited you must visit the successor,ordered_visit
+ensure that you visit h but only after d in turn only visit d after c only visit c after b and only visit b after a,ordered_visit
+go to a but not through b c d or h and then go to b but not through c d or h and then go to c but not through d or h and then go to d but not through h and finally go to h,ordered_visit
+go to h not before going to d do not go to d before going to c do not go to c before going to b and do not go to b before going to a,ordered_visit
+visit a before b b before c c before d and h before d,ordered_visit
+go to a b c d and h in that specific order,ordered_visit
+visit a only after a is visited go to b only after b is visited go to c only after c is visited go to d only after d is visited go to h,ordered_visit
+travel to b c and a infinitely,patrolling
+visit a b and c infinitely often,patrolling
+visit a b and c indefinitely,patrolling
+please keep visiting a b and c without stopping,patrolling
+repeatedly keep visiting a b and c,patrolling
+explore b a and c forever,patrolling
+continuously move to c b and a,patrolling
+at any point in time ensure that you will visit a b and c at least once in the future,patrolling
+never stop visiting a b and c,patrolling
+continue visiting  a b and c an infinite number of times,patrolling
+make sure you are always visiting a b and c,patrolling
+go to a c and b an infinite number of times,patrolling
+do not ever stop visiting a b and c,patrolling
+frequent a b and c infinitely in any order,patrolling
+keep visiting a b c and d an infinite number of times,patrolling
+continue to stop at a b c and d,patrolling
+do not stop going to a b c and d in any order,patrolling
+keep going to a b c and d an infinite number of times,patrolling
+please keep visiting a b c and d without stopping,patrolling
+you are prohibited from not infinitely going to d c a and b,patrolling
+do not go to c a d and b a finite number of times,patrolling
+keep visiting a b c and d in any order infinitely ,patrolling
+frequent a b c and d infinitely in any order,patrolling
+keep visiting a b c and d,patrolling
+keep going to a b c and d ,patrolling
+go to a b c and d over and over again,patrolling
+keep visiting a b c and d in no specific order,patrolling
+visit locations a b c and d an infinite number of times,patrolling
+never stop visiting a b c and d,patrolling
+keep visiting a b c d and h an infinite number of times,patrolling
+cycle through d h b c and a,patrolling
+do not stop going to a b c d and h in no specific order,patrolling
+keep going to a b c d and h an infinite number of times,patrolling
+please keep visiting a b c d and h without stopping,patrolling
+you are not allowed to cease exploring a b c d and h,patrolling
+visit a b h d and c with no limits,patrolling
+keep visiting a b c d and h in any order infinitely ,patrolling
+frequent a b c d and h infinitely in any order,patrolling
+visit b c a d and h an infinite number of times,patrolling
+go to a d c h and b an infinite number of times,patrolling
+go to a b c d and h infinitely often,patrolling
+keep visiting a b c d and h in no specific order,patrolling
+keep going to h d c b and a,patrolling
+never stop visiting a b c d and h,patrolling
+keep visiting a and b an infinite number of times,patrolling
+travel to a and b an infinite number of times,patrolling
+keep going back and forth between a and b,patrolling
+keep going to a and b an infinite number of times,patrolling
+repeatedly visit a and b forever,patrolling
+please keep visiting a and b without stopping,patrolling
+frequent a and b infinitely in any order,patrolling
+do not stop visiting a and b,patrolling
+go to a and b infinitely often,patrolling
+keep visiting a and b,patrolling
+keep visiting b and a,patrolling
+keep on visiting a and b,patrolling
+keep visiting a and b in any order,patrolling
+keep going between a and b,patrolling
+keep visiting a and b forever,patrolling

@@ -1,0 +1,25 @@
+The answer is “& F a F b | F b F a”., & F a F b
+The answer is “F & a F & b F & c F & d F h”., F & a F & b F & c F & d F h
+The answer is “F a & F b & F c”., & F a & F b F c
+The answer is “& F a G ! b & F b”., & & U ! b a F b U ! a U a U !a b
+The answer is “& G (F a & F b & F c & F d)”., & G F a & G F b & G F c G F d
+The answer is “& F a & F b & F c”., & F a & F b F c
+The answer is “F a & G F b & G ! a b”., & & U ! b a F b U ! a U a U !a b
+The answer is “F a & F b & F c & F d & G !(a & b & c & d)”., & & U ! b a & U ! c b & U ! d c F d & U ! a U a U !a b & U ! b U b U !b c U ! c U c U !c d
+The answer is “& U ! c ! b F a & U ! c a & U ! c ! a F b & U ! c b & F c”., & & U ! b a & U ! c b F c & U ! a U a U !a b U ! b U b U !b c
+The answer is simply “F a”., F a
+The answer is “F & a F b”., F & a F b
+The answer is “& G (F a & F b)”., & G F a G F b
+The answer is “F a & F b & F c & F d & F h & G (a -> F b) & G (b -> F c) & G (c -> F d) & G (d -> F h)”., F & a F & b F & c F & d F h
+The answer is “& F a & F b & F c & F d & F h”., & F a & F b & F c & F d F h
+The answer is “G F a”., G F a
+The answer is "F a"., F a
+The answer is “& F a & F b & F c”., & F a & F b F c
+The answer is “& F b F a”., & F a F b
+The answer is “& U ! b a & U ! c b F c”., & & U ! b a & U ! c b F c & U ! a U a U !a b U ! b U b U !b c
+The answer is “& U ! b a & U ! c b & U ! d c F d”., & & U ! b a & U ! c b & U ! d c F d & U ! a U a U !a b & U ! b U b U !b c U ! c U c U !c d
+The answer is “& F a G ! b”., & & U ! b a F b U ! a U a U !a b
+The answer is “F a & F b & F c & F d”., & U ! b a & U ! c b & U ! d c F d
+The answer is “& F a & F b F c”., & F a & F b F c
+The answer is “& G F a G F b”., & G F a G F b
+The answer is "F a"., F a

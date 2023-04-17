@@ -1,0 +1,28 @@
+Ground_truth, Model_output, LTL_type, Num_props, Instruction
+F & a F b,(!b U a) & Fb,sequenced_visit,2,eventually first visit a and then b after
+F & a F b,(!b U a) & Fb,sequenced_visit,2,visit a and then b
+F & a F b,Fa & Fb,sequenced_visit,2,go to a and sometime afterward visit b
+F & a F & b F c,Fa & Fb & Fc,sequenced_visit,3,visit a sometime afterwards visit b sometime afterwards visit c
+F & a F & b F c,Fa & Fb & Fc & (!b U a) & (!c U b),sequenced_visit,3,in some sequence visit a b and c in that order
+F & a F & b F & c F d,(!b U a) & (!c U b) & (!d U c),sequenced_visit,4,eventually in some sequence visit a b c and d each must be followed by the next 
+F & a F & b F & c F d,(!b U a) & (!c U b) & (!d U c) & Fd,sequenced_visit,4,visit a then visit b then visit c then visit d 
+F & a F & b F & c F & d F h,(!b U a) & (!c U b) & (!d U c) & (!h U d) & Fh,sequenced_visit,5,visit a b c d and h in this order there can be other landmarks in between
+& & U ! b a F b U ! a U a U ! a b,(!b U a) & F(a & !a),strictly_ordered_visit,2,only visit a once and do not visit b until you visit a 
+& & U ! b a & U ! c b F c & U ! a U a U ! a b U ! b U b U ! b c,(!b U a) & (!c U b) & Xb & Xa,strictly_ordered_visit,3,do not visit c until you visit b visit b only once do no visit b until you visit a visit a only once
+& & U ! b a & U ! c b & U ! d c F d & U ! a U a U ! a b & U ! b U b U ! b c U ! c U c U ! c d,(!b U a) & (!c U b) & (!d U c) & Fa,strictly_ordered_visit,4,do not visit d until you visit c visit c only once do not visit c until you visit b visit b only once do no visit b until you visit a visit a only once
+& & U ! b a & U ! c b & U ! d c F d & U ! a U a U ! a b & U ! b U b U ! b c U ! c U c U ! c d,(!b U a) & (!c U b) & (!d U c) & Fd,strictly_ordered_visit,4,visit a then b then c and then d you can only visit each landmark once
+& & U ! b a & U ! c b & U ! d c & U ! h d F h & U ! a U a U ! a b & U ! b U b U ! b c & U ! c U c U ! c d U ! d U d U ! d h,(!b U a) & (!c U b) & (!d U c) & (!h U d) & Fh & Xa & Xb & Xc & Xd & Xh,strictly_ordered_visit,5,do not visit h until you visit d visit d only once do not visit d until you visit c visit c only once do not visit c until you visit b visit b only once do no visit b until you visit a visit a only once
+& & U ! b a & U ! c b & U ! d c & U ! h d F h & U ! a U a U ! a b & U ! b U b U ! b c & U ! c U c U ! c d U ! d U d U ! d h,(!b U a) & (!c U b) & (!d U c) & (!h U d) & Fh & G(!a & !b & !c & !d & !h),strictly_ordered_visit,5,visit a then b then c then d and then h visit each landmark only once
+& & U ! b a & U ! c b & U ! d c & U ! h d F h & U ! a U a U ! a b & U ! b U b U ! b c & U ! c U c U ! c d U ! d U d U ! d h,(!b U a) & (!c U b) & (!d U c) & (!h U d) & Fh & G(!a & !b & !c & !d & !h),strictly_ordered_visit,5,eventually visit a afterward eventually visit b afterward eventually visit c afterward eventually visit d afterward eventually visit h visit each landmark only once
+F & a F b,Fa & Fb,sequenced_visit,2,move to a then move to b
+F & a F b,Fa & Fb,sequenced_visit,2,go to a then b
+& & U ! b a F b U ! a U a U ! a b,(!b U a) & G(!a) & Fb,strictly_ordered_visit,2,go to a exactly once while avoiding b then go to b
+& & U ! b a F b U ! a U a U ! a b,(!b U a) & G(a & !a) & Fb,strictly_ordered_visit,2,reach a exactly once while staying away from b then move to b
+& & U ! b a F b U ! a U a U ! a b,(!b U a) & Fb,strictly_ordered_visit,2,move to a exactly once while avoiding b then find b
+G F a,Fa,patrolling,1,keep visiting a
+G F a,Fa,patrolling,1,continue moving to a
+G F a,Ga,patrolling,1,do not stop visiting a
+G F a,Ga,patrolling,1,please visit a infinitely often
+G F a,Fa,patrolling,1,keep visiting a
+G F a,Fa,patrolling,1,keep going to a
+Accuracy: True

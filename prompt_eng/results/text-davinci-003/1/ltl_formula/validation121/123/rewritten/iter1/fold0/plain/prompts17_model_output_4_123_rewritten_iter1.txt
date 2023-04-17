@@ -1,0 +1,121 @@
+Fb & Fa & Fc & Fd, & F a & F b & F c F d
+Fa & Fb & Fd & Fc, & F a & F b & F c F d
+Fa & Fb & Fc & Fd, & F a & F b & F c F d
+F(a & F(b & F(c & F(d & Fh)))), & F a & F b & F c & F d F h
+F(a & F(c & F(b & F(h & Fd)))), & F a & F b & F c & F d F h
+F(a & F(b & F(h & F(d & Fc)))), & F a & F b & F c & F d F h
+F(a & F(b & F(c & F(d & Fh)))), & F a & F b & F c & F d F h
+(!b U a) & Fb, F & a F b
+(!b U a) & Fb, F & a F b
+(!b U a) & Fb, F & a F b
+F(a & F(b & F(c & Fd))), F & a F & b F & c F d
+(!b U a) & (!c U b) & (!d U c) & Fd, F & a F & b F & c F d
+(!b U a) & Fb, F & a F b
+(!b U a) & Fb, F & a F b
+(!b U a) & Fb, F & a F b
+(!b U a) & Fb, F & a F b
+(!b U a) & Fb, F & a F b
+(!b U a) & Fb, F & a F b
+Fa & Fb, F & a F b
+(!b U a) & Fb, F & a F b
+(!b U a) & Fb, F & a F b
+(!b U a) & Fb, F & a F b
+(!b U a) & (!c U b) & (!d U c) & (!h U d) & Fh, & F a & F b & F c & F d F h
+Fa & Fb & Fc & Fd & Fh, & F a & F b & F c & F d F h
+F(a & F(b & F(c & F(d & Fh)))), & F a & F b & F c & F d F h
+Fa & Fb & Fc & Fd & Fh, & F a & F b & F c & F d F h
+Fa & Fb & Fc & Fd & Fh, & F a & F b & F c & F d F h
+(!b U a) & Fb, F & a F b
+(!b U a) & Fb, F & a F b
+(!b U a) & Fb, F & a F b
+Fa & Fb, F & a F b
+(!b U a) & Fb, F & a F b
+Fa & Fb & Fc & Fd, & F a & F b & F c F d
+Fa & Fb & Fc & Fd, & F a & F b & F c F d
+Fa & Fb & Fc & Fd, & F a & F b & F c F d
+F(a & F(b & F(c & Fd))), & F a & F b & F c F d
+Fa & Fb & Fc & Fd, & F a & F b & F c F d
+Fa & Fb & Fc & Fd & Fh, & F a & F b & F c & F d F h
+Fa & F(b & F(c & F(d & Fh))), & F a & F b & F c & F d F h
+Fa & Fb & Fc & Fd & Fh, & F a & F b & F c & F d F h
+F(a & F(b & F(c & F(d & Fh)))), & F a & F b & F c & F d F h
+Fa & Fb & Fc & Fd & Fh, & F a & F b & F c & F d F h
+(!b U a) & (!c U b) & (!d U c) & Fd, F & a F & b F & c F d
+F(a & F(b & F(c & Fd))), F & a F & b F & c F d
+(!b U a) & (!c U b) & (!d U c) & Fd, F & a F & b F & c F d
+(!b U a) & (!c U b) & (!d U c) & Fd, F & a F & b F & c F d
+(!b U a) & (!c U b) & (!d U c) & Fd, F & a F & b F & c F d
+G(Fa & Fb & Fc & Fd), & G F a & G F b & G F c G F d
+GFa & GFb & GFc & GFd, & G F a & G F b & G F c G F d
+G(Fa & Fb & Fc & Fd), & G F a & G F b & G F c G F d
+G(Fa & Fb & Fc & Fd), & G F a & G F b & G F c G F d
+GFa & GFb & GFc & GFd, & G F a & G F b & G F c G F d
+(!b U a) & Fb, F & a F b
+(!b U a) & Fb, F & a F b
+(!b U a) & Fb, F & a F b
+Fa & Fb, F & a F b
+Fa & Fb & Fc & Fd, & F a & F b & F c F d
+Fa & Fb & Fc & Fd, & F a & F b & F c F d
+Fa & Fb & Fc & Fd, & F a & F b & F c F d
+Fa & Fb & Fc & Fd, & F a & F b & F c F d
+Fa & Fb & Fc & Fd, & F a & F b & F c F d
+Fa & Fb & Fc & Fd, & F a & F b & F c F d
+G(Fa & Fb & Fc & Fd), & G F a & G F b & G F c G F d
+G(Fa & Fb & Fc & Fd), & G F a & G F b & G F c G F d
+G(Fa & Fb & Fc & Fd), & G F a & G F b & G F c G F d
+G(F(a & F(b & F(c & Fd)))), & G F a & G F b & G F c G F d
+Fa & Fb & Fc & Fd, & G F a & G F b & G F c G F d
+Fa & Fb & Fc & Fd & Fh, & F a & F b & F c & F d F h
+Fa & Fb & Fc & Fd & Fh, & F a & F b & F c & F d F h
+Fa & Fd & Fc & Fh & Fb, & F a & F b & F c & F d F h
+F(b & F(a & F(h & F(c & Fd)))), & F a & F b & F c & F d F h
+Fa & Fb & Fc & Fd & Fh, & F a & F b & F c & F d F h
+Fa & Fb & Fc & Fd, & F a & F b & F c F d
+F(a & F(d & F(c & Fb))), & F a & F b & F c F d
+Fa & Fb & Fc & Fd, & F a & F b & F c F d
+(!c U d) & (!b U c) & (!a U b) & Fa, & F a & F b & F c F d
+F(a & F(b & F(c & Fd))), & F a & F b & F c F d
+Fa & Fb & Fc & Fd & Fh, & F a & F b & F c & F d F h
+Fa & Fb & Fc & Fd & Fh, & F a & F b & F c & F d F h
+Fa & Fb & Fc & Fd & Fh, & F a & F b & F c & F d F h
+Fa & Fb & Fc & Fd & Fh, & F a & F b & F c & F d F h
+Fa & Fb & Fc & Fd & Fh, & F a & F b & F c & F d F h
+G(Fa & Fb & Fc & Fd), & G F a & G F b & G F c G F d
+!Fc & !Fa & !Fd & !Fb, & G F a & G F b & G F c G F d
+Fb & Fc & Fd & Fa, & G F a & G F b & G F c G F d
+G(Fb & Fa & Fc & Fd), & G F a & G F b & G F c G F d
+GFd & GFc & GFa & GFb, & G F a & G F b & G F c G F d
+GFa & GFb & GFc & GFd, & G F a & G F b & G F c G F d
+Fa & Fb & Fc & Fd, & G F a & G F b & G F c G F d
+GF(Fa & Fb & Fc & Fd), & G F a & G F b & G F c G F d
+GFa & GFb & GFc & GFd, & G F a & G F b & G F c G F d
+GF(Fa & Fb & Fc & Fd), & G F a & G F b & G F c G F d
+(!b U a) & (!c U b) & (!d U c) & Fd, F & a F & b F & c F d
+F(a & F(b & F(c & Fd))), F & a F & b F & c F d
+(!b U a) & (!c U b) & (!d U (c & b & a)) & Fd, F & a F & b F & c F d
+Fa & Fb & Fc & Fd, F & a F & b F & c F d
+F(a & F(b & F(c & Fd))), F & a F & b F & c F d
+(!b U a) & (!c U b) & (!d U c) & Fd, & F a & F b & F c F d
+Fa & Fb & Fc & Fd, & F a & F b & F c F d
+F(a & F(b & F(c & Fd))), & F a & F b & F c F d
+Fa & Fb & Fc & Fd, & F a & F b & F c F d
+Fa & Fb & Fc & Fd, & F a & F b & F c F d
+(!b U a) & (!c U b) & (!d U c) & Fd, F & a F & b F & c F d
+(!b U a) & (!c U b) & (!d U c) & Fd, F & a F & b F & c F d
+(!b U a) & (!c U b) & (!d U c) & Fd, F & a F & b F & c F d
+(!b U a) & (!c U b) & (!d U c) & Fd, F & a F & b F & c F d
+F(a & F(b & F(c & Fd))), F & a F & b F & c F d
+F(a & F(b & F(c & Fd))) U (a & F(b & F(c & Fd))), & G F a & G F b & G F c G F d
+G(Fa & Fb & Fc & Fd), & G F a & G F b & G F c G F d
+GFa & GFb & GFc & GFd, & G F a & G F b & G F c G F d
+G(Fa & Fb & Fc & Fd), & G F a & G F b & G F c G F d
+(!b U a) & Fb, F & a F b
+(!b U a) & Fb, F & a F b
+(!b U a) & Fb, F & a F b
+(!b U a) & Fb, F & a F b
+(!b U a) & Fb, F & a F b
+(!b U a) & (!c U b) & (!d U c) & Fd, F & a F & b F & c F d
+(!b U a) & (!c U b) & (!d U c) & Fd, F & a F & b F & c F d
+(!b U a) & (!c U b) & (!d U c) & Fd, F & a F & b F & c F d
+(!b U a) & (!c U b) & (!d U c) & Fd, F & a F & b F & c F d
+(!b U a) & (!c U b) & (!d U c) & Fd, F & a F & b F & c F d

@@ -1,0 +1,30 @@
+F & a F & b F & c F & d F h, F & a F & b F & c F & d F h
+& U ! b a F b, & U ! b a F b
+& U ! b a F b, & U ! b a F b
+& U ! b a F b, & U ! b a F b
+& U ! b a F b, & U ! b a F b
+& U ! b a F b, & U ! b a F b
+G F a, G F a
+G F a, G F a
+G F a, G F a
+G F a, G F a
+G F a, G F a
+G F a, G F a
+& U ! b a F b, & U ! b a F b
+F & a F & b F & c F & d F h, F & a F & b F & c F & d F h
+F & a F & b F & c F & d F h, F & a F & b F & c F & d F h
+F & a F & b F & c F & d F h, F & a F & b F & c F & d F h
+& U ! b a & U ! c b & U ! d c & U ! h d F h, F & a F & b F & c F & d F h
+F & a F & b F c F d F h, F & a F & b F & c F & d F h
+F & a F & b F & c F d U ! a U ! b U ! c U ! d, & U ! b a & U ! c b & U ! d c F d
+& U ! b a & U ! c b & U ! d c F d, & U ! b a & U ! c b & U ! d c F d
+& U ! b a & U ! c b & U ! d c F d, & U ! b a & U ! c b & U ! d c F d
+F & a F & b F & c F d, & U ! b a & U ! c b & U ! d c F d
+F & a F & b F & c F d, & U ! b a & U ! c b & U ! d c F d
+& & U ! b a & U ! c b & U ! d c F d & U ! a U a U ! a b & U ! b U b U ! b c U ! c U c U ! c d, & U ! b a & U ! c b & U ! d c F d
+& G F a G F b, & G F a G F b
+& G F a G F b, & G F a G F b
+& G F a G F b, & G F a G F b
+& G F a & G F b, & G F a G F b
+G (F a & F b), & G F a G F b
+G (F a U F b), & G F a G F b

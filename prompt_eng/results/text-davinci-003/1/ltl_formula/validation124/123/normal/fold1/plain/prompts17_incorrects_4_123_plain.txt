@@ -1,0 +1,55 @@
+Parsed_output, Ground_truth, LTL_type, Num_props, Instruction, Model_output
+
+G(!Fa), G F a, patrolling, 1, do not stop visiting a, G(!Fa)
+
+G(!Fa), G F a, patrolling, 1, do not stop visiting a, G(!Fa)
+
+Fa & (!b U a), & U ! b a F b, ordered_visit, 2, visit a and visit b only if a is visited, Fa & (!b U a)
+
+(!b U a) & (!c U b) & (!d U c) & (!h U d) & GFh, F & a F & b F & c F & d F h, sequenced_visit, 5, visit b at least once after visiting a visit c at least once after visiting both a and b visit d at least once after visiting a b and c and visit h at least once after visiting a b c and d, (!b U a) & (!c U b) & (!d U c) & (!h U d) & GFh
+
+(!b U a) & (!a U (a U (!a U b))), & U ! b a F b, ordered_visit, 2, go to b after going to a do not go to b before, (!b U a) & (!a U (a U (!a U b)))
+
+F(a & Fb), & U ! b a F b, ordered_visit, 2, go to a and only then go to b, F(a & Fb)
+
+!(b U !a), & U ! b a F b, ordered_visit, 2, ensure that you do not reach b before going to a, !(b U !a)
+
+F(a & F(b & F(c & Fd))), & U ! b a & U ! c b & U ! d c F d, ordered_visit, 4, first go directly to a without visiting any other waypoints then go directly to b then directly to c and finally directly to d, F(a & F(b & F(c & Fd)))
+
+F(a & F(b & F(c & Fd))), & U ! b a & U ! c b & U ! d c F d, ordered_visit, 4, visit a b c d in that specific order, F(a & F(b & F(c & Fd)))
+
+(!b U a) & (!c U b) & (!d U c) & (!h U d) & Fh, F & a F & b F & c F & d F h, sequenced_visit, 5, head to a and then to b after a is visited and then to c after b is visited and then to d after c is visited and then to h after d is visited, (!b U a) & (!c U b) & (!d U c) & (!h U d) & Fh
+
+(!b U a) & (!c U (a & !b)) & (!d U (a & !b & !c)) & Fd, & U ! b a & U ! c b & U ! d c F d, ordered_visit, 4, go to a but not through b c or d and then go to b but not through c or d and then go to c but not through d and finally go to d, (!b U a) & (!c U (a & !b)) & (!d U (a & !b & !c)) & Fd
+
+F(a & F(b & F(c & Fd))), & U ! b a & U ! c b & U ! d c F d, ordered_visit, 4, visit a b c and d in this order without skipping any one of them, F(a & F(b & F(c & Fd)))
+
+(!b U a) & (!c U b) & (!d U c) & (!h U d) & Fh, F & a F & b F & c F & d F h, sequenced_visit, 5, first make your way to a then you must go to b after that visit c then move to d finally reach h, (!b U a) & (!c U b) & (!d U c) & (!h U d) & Fh
+
+!b U a, & U ! b a F b, ordered_visit, 2, do not visit b until you go to a, !b U a
+
+(!b U a) & (!c U b) & (!d U c) & Fd & (!a U (a U (!a U b))) & (!b U (b U (!b U c))) & (!c U (c U (!c U d))), & U ! b a & U ! c b & U ! d c F d, ordered_visit, 4, visit a as many times as you want while avoiding b c and d then visit b as many times as you want while avoiding c and d then visit c as many times as you want while avoiding d finally visit d, (!b U a) & (!c U b) & (!d U c) & Fd & (!a U (a U (!a U b))) & (!b U (b U (!b U c))) & (!c U (c U (!c U d)))
+
+F(a & F(b & F(b & F(c & F(c & F(d & F(d & Fh)))))), F & a F & b F & c F & d F h, sequenced_visit, 5, visit a followed by b then b followed by c then c followed by d then d followed by h and then h, F(a & F(b & F(b & F(c & F(c & F(d & F(d & Fh))))))
+
+F(a & F(b & F(c & Fd))), & U ! b a & U ! c b & U ! d c F d, ordered_visit, 4, visit a b c and d in this strict order once the predecessor is visited you must visit the successor, F(a & F(b & F(c & Fd)))
+
+(!b U a) & (!c U b) & (!d U c) & Fd & (!a U (a U (!a U b))) & (!b U (b U (!b U c))) & (!c U (c U (!c U d))), & U ! b a & U ! c b & U ! d c F d, ordered_visit, 4, visit a then b then c then d while ensuring not to visit b before a not to visit c before b not to visit d before c, (!b U a) & (!c U b) & (!d U c) & Fd & (!a U (a U (!a U b))) & (!b U (b U (!b U c))) & (!c U (c U (!c U d)))
+
+(!b U a) & (!c U b) & (!d U c) & (!h U d) & Fh, F & a F & b F & c F & d F h, sequenced_visit, 5, visit b after you visit a visit c after you visit b visit d after you visit c visit h after you visit d, (!b U a) & (!c U b) & (!d U c) & (!h U d) & Fh
+
+(!b U a) & (!c U b) & (!d U c) & (!h U d) & Fh, F & a F & b F & c F & d F h, sequenced_visit, 5, visit a visit b after a then visit c after b then visit d after c finally visit h after d, (!b U a) & (!c U b) & (!d U c) & (!h U d) & Fh
+
+(!b U a) & (!c U b) & (!d U c) & (!h U d) & Fh, F & a F & b F & c F & d F h, sequenced_visit, 5, make your way to a visit b afterwards then go to c after that and d after that finally go to h, (!b U a) & (!c U b) & (!d U c) & (!h U d) & Fh
+
+(!b U a) & (!c U b) & (!d U c) & Fd & (!a U (a U (!a U b))) & (!b U (b U (!b U c))) & (!c U (c U (!c U d))), & U ! b a & U ! c b & U ! d c F d, ordered_visit, 4, visit a first while avoiding b then visit b while avoiding c then visit c while avoiding d then visit d, (!b U a) & (!c U b) & (!d U c) & Fd & (!a U (a U (!a U b))) & (!b U (b U (!b U c))) & (!c U (c U (!c U d)))
+
+(!b U a) & (!c U b) & (!d U c) & Fd & (!a U (a U (!a U b))) & (!b U (b U (!b U c))) & (!c U (c U (!c U d))), & U ! b a & U ! c b & U ! d c F d, ordered_visit, 4, reach a without going to b then go to b without passing c then go to c without passing d finally go to d, (!b U a) & (!c U b) & (!d U c) & Fd & (!a U (a U (!a U b))) & (!b U (b U (!b U c))) & (!c U (c U (!c U d)))
+
+(!b U a) & (!c U b) & (!d U c) & Fd & (!a U (a U (!a U b))) & (!b U (b U (!b U c))) & (!c U (c U (!c U d))), & U ! b a & U ! c b & U ! d c F d, ordered_visit, 4, visit a without visiting b then visit b without visiting c then visit c without visiting d finally visit d, (!b U a) & (!c U b) & (!d U c) & Fd & (!a U (a U (!a U b))) & (!b U (b U (!b U c))) & (!c U (c U (!c U d)))
+
+(!b U a) & (!c U b) & (!d U c) & Fd & (!a U (a U (!a U b))) & (!b U (b U (!b U c))) & (!c U (c U (!c U d))), & U ! b a & U ! c b & U ! d c F d, ordered_visit, 4, first go to a while avoiding b then go to b while staying away from c then go to c while staying away from d then visit d, (!b U a) & (!c U b) & (!d U c) & Fd & (!a U (a U (!a U b))) & (!b U (b U (!b U c))) & (!c U (c U (!c U d)))
+
+(!b U a) & (!c U b) & (!d U c) & Fd & (!a U (a U (!a U b))) & (!b U (b U (!b U c))) & (!c U (c U (!c U d))), & U ! b a & U ! c b & U ! d c F d, ordered_visit, 4, go to a then b then c finally d you cannot visit b before a you cannot visit c before b you cannot visit d before c, (!b U a) & (!c U b) & (!d U c) & Fd & (!a U (a U (!a U b))) & (!b U (b U (!b U c))) & (!c U (c U (!c U d)))
+
+Accuracy: 0.7903225806451613

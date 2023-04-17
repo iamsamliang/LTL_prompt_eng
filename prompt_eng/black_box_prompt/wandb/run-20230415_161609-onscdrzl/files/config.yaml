@@ -1,0 +1,139 @@
+wandb_version: 1
+
+model_name_or_path:
+  desc: null
+  value: text-davinci-003
+low_resource:
+  desc: null
+  value: false
+ce_loss:
+  desc: null
+  value: true
+sample_size:
+  desc: null
+  value: 10
+prompt_length:
+  desc: null
+  value: 50
+prompt_learning_rate:
+  desc: null
+  value: 5.0e-05
+prompt_search_space:
+  desc: null
+  value: 20
+num_train_epochs:
+  desc: null
+  value: 30
+ckpt_path:
+  desc: null
+  value: ./ckpts
+std:
+  desc: null
+  value: 0.01
+margin:
+  desc: null
+  value: 1
+trial:
+  desc: null
+  value: false
+learning_rate:
+  desc: null
+  value: 0.001
+use_wandb:
+  desc: null
+  value: true
+cuda:
+  desc: null
+  value: 0
+max_length:
+  desc: null
+  value: 450
+pad_to_max_length:
+  desc: null
+  value: false
+per_device_train_batch_size:
+  desc: null
+  value: 4
+per_device_eval_batch_size:
+  desc: null
+  value: 4
+weight_decay:
+  desc: null
+  value: 0.1
+max_train_steps:
+  desc: null
+  value: null
+gradient_accumulation_steps:
+  desc: null
+  value: 1
+lr_scheduler_type:
+  desc: null
+  value: SchedulerType.LINEAR
+num_warmup_steps:
+  desc: null
+  value: 100
+output_dir:
+  desc: null
+  value: null
+seed:
+  desc: null
+  value: 484
+k_shot:
+  desc: null
+  value: -1
+use_ngram:
+  desc: null
+  value: true
+api_limit:
+  desc: null
+  value: 8000
+train_file:
+  desc: null
+  value: train_set.csv
+validation_file:
+  desc: null
+  value: validation_set.csv
+test_file:
+  desc: null
+  value: test_set.csv
+experiment_id:
+  desc: null
+  value: LTL_Classification505e-050.00130484200.01True
+group_name:
+  desc: null
+  value: GPT3_BDPL_LTL_Classification
+_wandb:
+  desc: null
+  value:
+    python_version: 3.9.13
+    cli_version: 0.14.1
+    framework: huggingface
+    huggingface_version: 4.28.1
+    is_jupyter_run: false
+    is_kaggle_kernel: false
+    start_time: 1681589769.90987
+    t:
+      1:
+      - 1
+      - 11
+      - 49
+      - 51
+      - 55
+      - 71
+      2:
+      - 1
+      - 5
+      - 11
+      - 49
+      - 51
+      - 53
+      - 55
+      - 71
+      3:
+      - 16
+      - 23
+      4: 3.9.13
+      5: 0.14.1
+      6: 4.28.1
+      8:
+      - 5

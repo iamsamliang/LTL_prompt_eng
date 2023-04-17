@@ -1,0 +1,69 @@
+Your task is to translate English instructions into linear temporal logic (LTL) formulas.
+
+Q: What is "make your way to a" in LTL?
+A: F a
+
+Q: What is "go to a and b" in LTL?
+A: & F a F b
+
+Q: What is "when you have the chance can you go to a c and b " in LTL?
+A: & F a & F b F c
+
+Q: What is "reach all the following locations a b c and d" in LTL?
+A: & F a & F b & F c F d
+
+Q: What is "reach a b c d and h in any order" in LTL?
+A: & F a & F b & F c & F d F h
+
+Q: What is "go to a then b" in LTL?
+A: F & a F b
+
+Q: What is "reach a then reach b and then reach c" in LTL?
+A: F & a F & b F c
+
+Q: What is "travel from a to b to c to d" in LTL?
+A: F & a F & b F & c F d
+
+Q: What is "go to a then go to b then go to c then go to d then go to h" in LTL?
+A: F & a F & b F & c F & d F h
+
+Q: What is "first go to a then go to b only after a finally go to c only after b" in LTL?
+A: & U ! b a & U ! c b F c
+
+Q: What is "visit a one time but not through b and head to b after a is visited but not through a" in LTL?
+A: & & U ! b a F b U ! a U a U ! a b
+
+Q: What is "go to a first go to b second and do not visit a again go to c third and do not visit b again " in LTL?
+A: & & U ! b a & U ! c b F c & U ! a U a U ! a b U ! b U b U ! b c
+
+Q: What is "visit a then b then c and then d in that strict order without returning to previously visited locations" in LTL?
+A: & & U ! b a & U ! c b & U ! d c F d & U ! a U a U ! a b & U ! b U b U ! b c U ! c U c U ! c d
+
+Q: What is "go to a once without visiting b then go to b once without visiting c then go to c once without visiting d then go to d once without visiting h finally go to h" in LTL?
+A: & & U ! b a & U ! c b & U ! d c & U ! h d F h & U ! a U a U ! a b & U ! b U b U ! b c & U ! c U c U ! c d U ! d U d U ! d h
+
+Q: What is "visit a and b but do not visit b without visiting a" in LTL?
+A: & U ! b a F b
+
+Q: What is "please keep visiting a" in LTL?
+A: G F a
+
+Q: What is "visit a b c and d in this strict order once the predecessor is visited you must visit the successor" in LTL?
+A: & U ! b a & U ! c b & U ! d c F d
+
+Q: What is "visit a only after a is visited go to b only after b is visited go to c only after c is visited go to d only after d is visited go to h" in LTL?
+A: & U ! b a & U ! c b & U ! d c & U ! h d F h
+
+Q: What is "do not stop going to c a and b" in LTL?
+A: & G F a & G F b G F c
+
+Q: What is "keep going to a b c and d an infinite number of times" in LTL?
+A: & G F a & G F b & G F c G F d
+
+Q: What is "keep going to a b c d and h an infinite number of times" in LTL?
+A: & G F a & G F b & G F c & G F d G F h
+
+Q: What is "keep going to a and b an infinite number of times" in LTL?
+A: & G F a G F b
+
+Q:

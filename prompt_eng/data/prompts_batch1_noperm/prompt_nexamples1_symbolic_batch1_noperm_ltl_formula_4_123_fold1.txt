@@ -1,0 +1,54 @@
+Your task is to translate English instructions into linear temporal logic (LTL) formulas.
+
+Q: What is "reach a" in LTL?
+A: Fa
+
+Q: What is "visit b and a" in LTL?
+A: Fa & Fb
+
+Q: What is "visit c a and b in no specific order" in LTL?
+A: Fa & Fb & Fc
+
+Q: What is "go to four locations a b d and c" in LTL?
+A: Fa & Fb & Fc & Fd
+
+Q: What is "sometime visit a c b h and d" in LTL?
+A: Fa & Fb & Fc & Fd & Fh
+
+Q: What is "visit a and then b" in LTL?
+A: F(a & F(a & Fb))
+
+Q: What is "in some sequence visit a b and c in that order" in LTL?
+A: F(a & F(b & Fc))
+
+Q: What is "visit a then visit b then visit c then visit d" in LTL?
+A: F(a & F(b & F(c & Fd)))
+
+Q: What is "in strictly this order visit a then eventually visit b and finally eventually c" in LTL?
+A: (!b U a) & (!c U b) & Fc
+
+Q: What is "go to a exactly once while avoiding b then go to b" in LTL?
+A: (!b U a) & Fb & (!a U (a U (!a U b)))
+
+Q: What is "visit a exactly once while avoiding b and c then visit b exactly once while avoiding c finally visit c" in LTL?
+A: (!b U a) & (!c U b) & Fc & (!a U (a U (!a U b))) & (!b U (b U (!b U c)))
+
+Q: What is "visit a then b then c and then d you can only visit each landmark once" in LTL?
+A: (!b U a) & (!c U b) & (!d U c) & Fd & (!a U (a U (!a U b))) & (!b U (b U (!b U c))) & (!c U (c U (!c U d)))
+
+Q: What is "visit a then b then c then d and then h visit each landmark only once" in LTL?
+A: (!b U a) & (!c U b) & (!d U c) & (!h U d) & Fh & (!a U (a U (!a U b))) & (!b U (b U (!b U c))) & (!c U (c U (!c U d))) & (!d U (d U (!d U h)))
+
+Q: What is "go to a and only go to b only after a is visited and then go to c only after a and b are both visited and then go to d only after a b and c are all visited and then go to h only after a b c and d are all visited" in LTL?
+A: (!b U a) & (!c U b) & (!d U c) & (!h U d) & Fh
+
+Q: What is "frequent a b and c infinitely in any order" in LTL?
+A: GFa & GFb & GFc
+
+Q: What is "frequent a b c and d infinitely in any order" in LTL?
+A: GFa & GFb & GFc & GFd
+
+Q: What is "frequent a b c d and h infinitely in any order" in LTL?
+A: GFa & GFb & GFc & GFd & GFh
+
+Q:

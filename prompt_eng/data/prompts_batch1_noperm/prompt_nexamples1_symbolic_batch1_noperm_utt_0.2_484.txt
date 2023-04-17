@@ -1,0 +1,69 @@
+Your task is to translate English instructions into linear temporal logic (LTL) formulas.
+
+Q: What is "reach a" in LTL?
+A: F a
+
+Q: What is "visit b and a" in LTL?
+A: & F a F b
+
+Q: What is "visit c a and b in no specific order" in LTL?
+A: & F a & F b F c
+
+Q: What is "move to a b c and d in any order" in LTL?
+A: & F a & F b & F c F d
+
+Q: What is "make sure a b c d and h are all visited" in LTL?
+A: & F a & F b & F c & F d F h
+
+Q: What is "visit a and then b" in LTL?
+A: F & a F b
+
+Q: What is "in some sequence visit a b and c in that order" in LTL?
+A: F & a F & b F c
+
+Q: What is "head to a and then to b after a is visited and then to c after b is visited and then to d after c is visited" in LTL?
+A: F & a F & b F & c F d
+
+Q: What is "go to a then go to b then go to c then go to d finally go to h" in LTL?
+A: F & a F & b F & c F & d F h
+
+Q: What is "do not go to c until you visit b and do not go to b until you visit a and make sure you visit c" in LTL?
+A: & U ! b a & U ! c b F c
+
+Q: What is "go to a only once but keep away from b and then visit b but keep away from a" in LTL?
+A: & & U ! b a F b U ! a U a U ! a b
+
+Q: What is "make your way to c only after going to b before that make your way to b only after going to a do not go back to the previous location you have visited while heading to the next" in LTL?
+A: & & U ! b a & U ! c b F c & U ! a U a U ! a b U ! b U b U ! b c
+
+Q: What is "make your way to d only after going to c before that make your way to c only after going to b before that make your way to b only after going to a do not go back to the previous location you have visited while heading to the next" in LTL?
+A: & & U ! b a & U ! c b & U ! d c F d & U ! a U a U ! a b & U ! b U b U ! b c U ! c U c U ! c d
+
+Q: What is "do not go to h until d is visited and do not go to d until c is visited and do not go to c until b is visited and do not go to b until a is visited along the path never return to previous location you have been to" in LTL?
+A: & & U ! b a & U ! c b & U ! d c & U ! h d F h & U ! a U a U ! a b & U ! b U b U ! b c & U ! c U c U ! c d U ! d U d U ! d h
+
+Q: What is "find b but not until you find a first" in LTL?
+A: & U ! b a F b
+
+Q: What is "make sure at any point in time you will visit a at least once in the future" in LTL?
+A: G F a
+
+Q: What is "visit a as many times as you want while avoiding b c and d then visit b as many times as you want while avoiding c and d then visit c as many times as you want while avoiding d finally visit d" in LTL?
+A: & U ! b a & U ! c b & U ! d c F d
+
+Q: What is "do not go to h until d is visited and do not go to d until c is visited and do not go to c until b is visited and do not go to b until a is visited" in LTL?
+A: & U ! b a & U ! c b & U ! d c & U ! h d F h
+
+Q: What is "keep visiting a b and c in any order" in LTL?
+A: & G F a & G F b G F c
+
+Q: What is "do not go to c a d and b a finite number of times" in LTL?
+A: & G F a & G F b & G F c G F d
+
+Q: What is "visit a b h d and c with no limits" in LTL?
+A: & G F a & G F b & G F c & G F d G F h
+
+Q: What is "frequent a and b infinitely in any order" in LTL?
+A: & G F a G F b
+
+Q:

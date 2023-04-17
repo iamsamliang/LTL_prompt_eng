@@ -1,0 +1,19 @@
+Your task is to translate English natural language instructions (NLI) into linear temporal logic (LTL).
+
+Q: Translate the NLI “visit a and b in any order” to its LTL in prefix notation.
+A: The answer is “& F a F b”.
+
+Q: Translate the NLI “go to a then go to b then go to c” to its LTL in prefix notation.
+A: The answer is “F & a F & b F c”.
+
+Q: Translate the NLI “visit c but only after visiting b and visit b only after visiting a” to its LTL in prefix notation.
+A: The answer is “& U ! b a & U ! c b F c”.
+
+Q: Translate the NLI “go to c after b go to b after going to a” to its LTL in prefix notation.
+A: The answer is “F & a F & b F c”.
+
+Q: Translate the NLI “make sure a b and c are visited infinitely” to its LTL in prefix notation.
+A: The answer is “& G F a & G F b G F c”.
+
+Q: Translate the NLI “do not go to d until c is visited and do not go to c until b is visited and do not go to b until a is visited” to its LTL in prefix notation.
+A: The answer is “& U ! b a & U ! c b & U ! d c F d”.

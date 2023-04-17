@@ -1,0 +1,9 @@
+Model_output, Ground_truth, LTL_type, Num_props, Instruction
+
+(!b U a) & Fb,F & a F b,sequenced_visit,2,after you have been to a make your way to b
+
+(!b U a) & (!c U b) & (!d U c) & (!h U d) & Fh,F & a F & b F & c F & d F h,sequenced_visit,5,visit b at least once after visiting a visit c at least once after visiting both a and b visit d at least once after visiting a b and c and visit h at least once after visiting a b c and d
+
+(!b U a) & (!c U b) & (!d U c) & Fd & (!a U (a U (!a U b))) & (!b U (b U (!b U c))) & (!c U (c U (!c U d))),& U ! b a & U ! c b & U ! d c F d,ordered_visit,4,first go directly to a without visiting any other waypoints then go directly to b then directly to c and finally directly to d - Wrong reasoning
+
+Accuracy: 0.9

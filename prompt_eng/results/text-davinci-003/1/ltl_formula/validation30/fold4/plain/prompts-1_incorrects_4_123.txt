@@ -1,0 +1,10 @@
+Model_output, Ground_truth, LTL_type, Num_props, Instruction
+& G F a & G F b G F c,& F a & F b F c,visit,3,visit c a and b in no specific order
+& U ! c a & U ! b c F b,& F a & F b F c,visit,3,eventually reach a c and b
+& U ! b a & U ! c b F c,F & a F & b F c,sequenced_visit,3,visit a sometime afterwards visit b sometime afterwards visit c
+& G F a & G F b G F c,& F a & F b F c,visit,3,head to a b and c in any order
+& G F a & G F b G F c,& F a & F b F c,visit,3,in any order you like go to a b and c
+& G F a & G F b G F c,& F a & F b F c,visit,3,visit a b and c in any order
+& G F a & G F b G F c,& F a & F b F c,visit,3,walk to a b and c in an arbitrary order
+& U ! b a & U ! c b F c,F & a F & b F c,sequenced_visit,3,go to a and go to b after a is visited and go to c after a and b are visited
+Accuracy: 0.4666666666666667

@@ -1,0 +1,8 @@
+Model_output, Ground_truth, LTL_type, Num_props, Instruction
+(!b U a) & (!c U b) & Fc,F & a F & b F c,sequenced_visit,3,visit a b and c one after another
+(!b U a) & (!c U b) & Fc,F & a F & b F c,sequenced_visit,3,go to a and go to b after a is visited and go to c after a and b are visited
+(!b U a) & (!c U b) & Fc,F & a F & b F c,sequenced_visit,3,make your way to a b and c consecutively
+(!b U a) & (!c U b) & Fc,F & a F & b F c,sequenced_visit,3,head to a b and c in order
+Fa & Fb & Fc & Fd & Fh,& G F a & G F b & G F c & G F d G F h,patrolling,5,keep visiting a b c d h in any order
+Fa & Fb & Fc & Fd & Fh,& G F a & G F b & G F c & G F d G F h,patrolling,5,keep going to h d c b and a
+Accuracy: 0.8

@@ -1,0 +1,50 @@
+The answer is “& F a F b F c F d F h”., & F a & F b & F c & F d F h
+The answer is “& U ! b a & U ! c b & U ! d c F X c F X b F X a F d”., & & U ! b a & U ! c b & U ! d c F d & U ! a U a U !a b & U ! b U b U !b c U ! c U c U !c d
+The answer is “F & a F & b F c”., & U ! b a & U ! c b F c
+The answer is “F & a F b”., & F a F b
+The answer is “F & a F & b F c”., & F a & F b F c
+The answer is “F & a F & b F & c F & d F h”., & & U ! b a & U ! c b & U ! d c & U ! h d F h & U ! a U a U !a b & U ! b U b U !b c & U ! c U c U !c d U ! d U d U !d h
+The answer is “& F a F b F c”., & F a & F b F c
+The answer is “& U ! b a & U ! c b F c G F c”., & U ! b a & U ! c b F c
+The answer is “F & (a F b) & (b F a)”., & F a F b
+The answer is “G F a”., G F a
+The answer is “F & a F & b F & c F d”., & F a & F b & F c F d
+The answer is “F & a & ! b F b”., & U ! b a F b
+The answer is “& G F a G F b”., & G F a G F b
+The answer is “& U ! b a & U ! c b & U ! d c & U ! h d F h”., & U ! b a & U ! c b & U ! d c & U ! h d F h
+The answer is “& F a F b F c”., & F a & F b F c
+The answer is “F & a F b”., F & a F b
+The answer is “& X a X b X c”., F & a F & b F c
+The answer is “F & a F & b F & c F & d F h”., & U ! b a & U ! c b & U ! d c & U ! h d F h
+The answer is “& F a F b F c F d F h”., & F a & F b & F c & F d F h
+The answer is “F & a F b”., F & a F b
+The answer is “F & a F b”., F & a F b
+The answer is “F & a F b”., & U ! b a F b
+The answer is “F & a F & b F c F d F h”., F & a F & b F & c F & d F h
+The answer is “F & b F a”., & F a F b
+The answer is “F & X a U ! b a”., & & U ! b a F b U ! a U a U !a b
+The answer is “F & a F & b F & c F d”., & U ! b a & U ! c b & U ! d c F d
+The answer is “F & a X & ! a b X & ! b c X & ! c d F d”., & U ! b a & U ! c b & U ! d c F d
+The answer is “F & a F & b F & c F d”., & U ! b a & U ! c b & U ! d c F d
+The answer is “F & a F & b F & c F & d F h”., & & U ! b a & U ! c b & U ! d c & U ! h d F h & U ! a U a U !a b & U ! b U b U !b c & U ! c U c U !c d U ! d U d U !d h
+The answer is “F & X ! b a F b”., & & U ! b a F b U ! a U a U !a b
+The answer is “F & a X F b”., & & U ! b a F b U ! a U a U !a b
+The answer is “& G F a & G F b”., & G F a G F b
+The answer is “F a”., F a
+The answer is “F & a & U ! b a & U ! c b & U ! d c & U ! h d F b & U ! c b & U ! d c & U ! h d F c & U ! d c & U ! h d F d & U ! h d F h”., & U ! b a & U ! c b & U ! d c & U ! h d F h
+The answer is “F & a X & b X & c X & d F d”., F & a F & b F & c F d
+The answer is “F a”., F a
+The answer is “& F a F b F c”., & F a & F b F c
+The answer is “& U ! b a F b”., & U ! b a F b
+The answer is “F & a F & b F & c F d”., F & a F & b F & c F d
+The answer is “& U ! b a & U ! c b F c”., & U ! b a & U ! c b F c
+The answer is “& G F a & G F b & G F c”., & G F a & G F b G F c
+The answer is “F a F b F c”., & F a & F b F c
+The answer is “F & a F & b F & c F & d F h”., F & a F & b F & c F & d F h
+The answer is “F & a F & b F & c F & d F h”., & F a & F b & F c & F d F h
+The answer is “F & a F & b F c”., F & a F & b F c
+The answer is “F & a F & b F & c F d”., F & a F & b F & c F d
+The answer is “F & a F & b F & c F d”., & & U ! b a & U ! c b & U ! d c F d & U ! a U a U !a b & U ! b U b U !b c U ! c U c U !c d
+The answer is “G F a”., G F a
+The answer is “& G F a & G F b & G F c & G F d”., & G F a & G F b & G F c G F d
+The answer is “F & b F & a F c F d”., & F a & F b & F c F d

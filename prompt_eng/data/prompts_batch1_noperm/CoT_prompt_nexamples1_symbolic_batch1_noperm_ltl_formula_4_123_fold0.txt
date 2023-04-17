@@ -1,0 +1,54 @@
+Your task is to translate English instructions into linear temporal logic (LTL) formulas.
+
+Q: What is "reach a" in LTL?
+A: We must eventually visit some landmarks in any order. Eventually is the "F" LTL operator. "reach" specifies we must "eventually visit a". Examining each part, "eventually visit a" is "Fa". There is 1 landmark so we are done. The answer is "Fa".
+
+Q: What is "visit b and a" in LTL?
+A: We must eventually visit some landmarks in any order. Eventually is the "F" LTL operator. "visit" specifies we must "eventually visit a and b". Examining each part, "eventually visit a" is "Fa". "eventually visit b" is "Fb". There are 2 landmarks so we are done. The answer is "Fa & Fb".
+
+Q: What is "visit c a and b in no specific order" in LTL?
+A: We must eventually visit some landmarks in any order. Eventually is the "F" LTL operator. "visit" specifies we must "eventually visit a, b, and c". Examining each part, "eventually visit a" is "Fa". "eventually visit b" is "Fb". Repeat for the remaining parts. The answer is "Fa & Fb & Fc".
+
+Q: What is "in some sequence visit a b and c in that order" in LTL?
+A: We eventually visit some landmarks in a certain order. Eventually is the "F" LTL operator. "in that order" specifies we must visit "a and then visit b and then visit c, eventually". Working backwards, "eventually, visit c" is "Fc". "eventually, visit b and then visit c" is "F(b & Fc)". "eventually, visit a and then b and then visit c" is "F(a & F(b & Fc))". We reached the first landmark so we are done. The answer is "F(a & F(b & Fc))".
+
+Q: What is "visit a b c d and h sequentially" in LTL?
+A: We eventually visit some landmarks in a certain order. Eventually is the "F" LTL operator. "sequentially" specifies we must visit "a and then visit b and then visit c and then visit d and then visit h, eventually". Working backwards, "eventually, visit h" is "F h". "eventually, visit d and then visit h" is "F(d & F h)". "eventually, visit c and then d and then visit h" is "F(c & F(d & Fh))". Keep doing this until we reach the first landmark. The answer is "F(a & F(b & F(c & F(d & Fh))))".
+
+Q: What is "in strictly this order visit a then eventually visit b and finally eventually c" in LTL?
+A: We eventually visit some landmarks in a certain order while we cannot visit some landmarks until we visit others first. Eventually is the "F" LTL operator. "strictly this order" specifies we only visit one landmark after visiting another. "We eventually visit c but not until we visit b and we visit b but not until we visit a". Examining each part, "visit b but not until visit a" is "(!b U a)". "visit c but not until visit b" is "(!c U b)". "eventually visit c" is "Fc". The answer is "(!b U a) & (!c U b) & Fc".
+
+Q: What is "go to a exactly once while avoiding b then go to b" in LTL?
+A: We eventually visit some landmarks in a certain order while we cannot visit some landmarks until we visit others first. After we visit a landmark, we never visit it again. Eventually is the "F" LTL operator. "while avoiding" and "then" specify we only visit one landmark after visiting another. "exactly once" specifies we visit a landmark only once. "We eventually visit b but not until we visit a. We visit each landmark only once". Examining each part, "visit b but not until visit a" is "(!b U a)". "eventually visit b" is "Fb". "visit a only once" is (!a U (a U (!a U b))). The answer is "(!b U a) & Fb & (!a U (a U (!a U b)))".
+
+Q: What is "visit a exactly once while avoiding b and c then visit b exactly once while avoiding c finally visit c" in LTL?
+A: We eventually visit some landmarks in a certain order while we cannot visit some landmarks until we visit others first. After we visit a landmark, we never visit it again. Eventually is the "F" LTL operator. "while avoiding" and "then" specify we only visit one landmark after visiting another. "exactly once" specifies that we visit a landmark only once. "We eventually visit c but not until we visit b and we visit b but not until we visit a. We visit each landmark only once". Examining each part, "visit b but not until visit a" is "(!b U a)". "visit c but not until visit b" is "(!c U b)". "eventually visit c" is "Fc". "visit a only once" is (!a U (a U (!a U b))). "visit b only once" is (!b U (b U (!b U c))). The answer is "(!b U a) & (!c U b) & Fc & (!a U (a U (!a U b))) & (!b U (b U (!b U c)))".
+
+Q: What is "visit a then b then c and then d you can only visit each landmark once" in LTL?
+A: We eventually visit some landmarks in a certain order while we cannot visit some landmarks until we visit others first. After we visit a landmark, we never visit it again. Eventually is the "F" LTL operator. "then" specifies we visit landmarks in a specific order and "only visit...once" specifies that we visit a landmark only once. Combining this logic, we only visit one landmark after visiting another and never go back to previously visited landmarks. "We eventually visit d but not until we visit c and we visit c but not until we visit b and we visit b but not until we visit a. We visit each landmark only once except for the last landmark, d". Examining each part, "visit b but not until visit a" is "(!b U a)". "visit c but not until visit b" is "(!c U b)". "visit d but not until we visit c" is "(!d U c)". "eventually visit d" is "Fd". "visit a only once" is (!a U (a U (!a U b))). "visit b only once" is (!b U (b U (!b U c))). Repeat for the remaining landmarks except for landmark d. The answer is "(!b U a) & (!c U b) & (!d U c) & Fd & (!a U (a U (!a U b))) & (!b U (b U (!b U c))) & (!c U (c U (!c U d)))".
+
+Q: What is "visit a then b then c then d and then h visit each landmark only once" in LTL?
+A: We eventually visit some landmarks in a certain order while we cannot visit some landmarks until we visit others first. After we visit a landmark, we never visit it again. Eventually is the "F" LTL operator. "then" specifies we visit landmarks in a specific order and "only once" specifies that we visit a landmark only once. Combining this logic, we only visit one landmark after visiting another and never go back to previously visited landmarks. "We eventually visit h but not until we visit d and we visit d but not until we visit c and we visit c but not until we visit b and we visit b but not until we visit a. We visit each landmark only once except for the last landmark, h". Examining each part, "visit b but not until visit a" is "(!b U a)". "visit c but not until visit b" is "(!c U b)". "visit d but not until we visit c" is "(!d U c)". "visit h but not until we visit d" is "(!h U d)". "eventually visit h" is "Fh". "visit a only once" is (!a U (a U (!a U b))). "visit b only once" is (!b U (b U (!b U c))). Repeat for the remaining landmarks except for landmark h. The answer is "(!b U a) & (!c U b) & (!d U c) & (!h U d) & Fh & (!a U (a U (!a U b))) & (!b U (b U (!b U c))) & (!c U (c U (!c U d))) & (!d U (d U (!d U h)))".
+
+Q: What is "find b but not until you find a first" in LTL?
+A: We eventually visit some landmarks in a certain order while we cannot visit some landmarks until we visit others first. Eventually is the "F" LTL operator. "until" specifies we only visit one landmark after visiting another. "We eventually visit b but not until we visit a". Examining each part, "visit b but not until visit a" is "(!b U a)". "eventually visit b" is "Fb". The answer is "(!b U a) & Fb".
+
+Q: What is "go to a an infinite number of times" in LTL?
+A: We must eventually visit some landmarks in any order and do so forever. Eventually is the "F" LTL operator. Forever is the "G" LTL operator. "infinite" specifies we must "eventually visit a forever". Examining each part, "eventually visit a forever" is "GFa". There is 1 landmark so we are done. The answer is "GFa".
+
+Q: What is "go to a only after that go to b only then go to c and only then go to d" in LTL?
+A: We eventually visit some landmarks in a certain order while we cannot visit some landmarks until we visit others first. Eventually is the "F" LTL operator. "only after" and "only then" specify we only visit one landmark after visiting another. "We eventually visit d but not until we visit c and we visit c but not until we visit b and we eventually visit b but not until we visit a". Examining each part, "visit b but not until visit a" is "(!b U a)". "visit c but not until visit b" is "(!c U b)". Repeat for the remaining parts. "eventually visit d" is "Fd". The answer is "(!b U a) & (!c U b) & (!d U c) & Fd".
+
+Q: What is "go to a and only go to b only after a is visited and then go to c only after a and b are both visited and then go to d only after a b and c are all visited and then go to h only after a b c and d are all visited" in LTL?
+A: We eventually visit some landmarks in a certain order while we cannot visit some landmarks until we visit others first. Eventually is the "F" LTL operator. "only after" specify we only visit one landmark after visiting another. "We eventually visit h but not until we visit d and we visit d but not until we visit c and we visit c but not until we visit b and we eventually visit b but not until we visit a". Examining each part, "visit b but not until visit a" is "(!b U a)". "visit c but not until visit b" is "(!c U b)". Repeat for the remaining parts. "eventually visit h" is "Fh". The answer is "(!b U a) & (!c U b) & (!d U c) & (!h U d) & Fh".
+
+Q: What is "frequent a b and c infinitely in any order" in LTL?
+A: We must eventually visit some landmarks in any order and do so forever. Eventually is the "F" LTL operator. Forever is the "G" LTL operator. "infinitely" specifies we must "eventually visit a, b, and c forever". Examining each part, "eventually visit a forever" is "GFa". "eventually visit b forever" is "GFb". Repeat for the remaining parts. The answer is "GFa & GFb & GFc".
+
+Q: What is "frequent a b c d and h infinitely in any order" in LTL?
+A: We must eventually visit some landmarks in any order and do so forever. Eventually is the "F" LTL operator. Forever is the "G" LTL operator. "infinitely" specifies we must "eventually visit a, b, c, d, and h forever". Examining each part, "eventually visit a forever" is "GFa". "eventually visit b forever" is "GFb". Repeat for the remaining parts. The answer is "GFa & GFb & GFc & GFd & GFh".
+
+Q: What is "go to a and b infinitely often" in LTL?
+A: We must eventually visit some landmarks in any order and do so forever. Eventually is the "F" LTL operator. Forever is the "G" LTL operator. "infinitely" specifies we must "eventually visit a and b forever". Examining each part, "eventually visit a forever" is "GFa". "eventually visit b forever" is "GFb". There are 2 landmarks so we are done. The answer is "GFa & GFb".
+
+Q:

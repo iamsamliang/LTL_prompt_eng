@@ -1,0 +1,14 @@
+Model_output, Ground_truth, LTL_type, Num_props, Instruction
+(!b U a) & Fb,F & a F b,sequenced_visit,2,eventually first visit a and then b after
+Fa & Fb,F & a F b,sequenced_visit,2,visit a and then b
+(!b U a) & Fb,F & a F b,sequenced_visit,2,go to a and sometime afterward visit b
+(!b U a) & (!c U b) & (!d U c),F & a F & b F & c F d,sequenced_visit,4,visit a then visit b then visit c then visit d 
+(!b U a) & Fb,F & a F b,sequenced_visit,2,move to a then move to b
+(!b U a) & Fb,F & a F b,sequenced_visit,2,go to a then b
+(!b U a) & Fb,F & a F b,sequenced_visit,2,find a first then find b
+(!b U a) & (!c U b) & (!d U c) & (!h U d) & Fh,& F a & F b & F c & F d F h,visit,5,go to a go to b go to c go to d go to h
+(!b U a) & (!c U b) & (!d U c) & Fd,F & a F & b F & c F d,sequenced_visit,4,go to a and then go to b and then go to c and then go to d
+F(b & F(c & Fd)),F & a F & b F & c F d,sequenced_visit,4,visit a b c and d in this order there can be other locations in between
+(!b U a) & (!c U b) & (!d U c) & Fd,F & a F & b F & c F d,sequenced_visit,4,head to a and then to b after a is visited and then to c after b is visited and then to d after c is visited
+Fa & Fb & Fc & Fd,& G F a & G F b & G F c G F d,patrolling,4,keep visiting a b c and d in any order
+Accuracy: 0.6

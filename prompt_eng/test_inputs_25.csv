@@ -1,0 +1,26 @@
+instruction,ltl
+go to a and b in an arbitrary order,& F a F b
+go to a then go to b and then reach c then reach d and finally go to h,F & a F & b F & c F & d F h
+find a b and c,& F a & F b F c
+you must visit a exactly once while avoiding b then you can navigate to b,& & U ! b a F b U ! a U a U !a b
+frequent a b c and d infinitely in any order,& G F a & G F b & G F c G F d
+stop by abc in any order,& F a & F b F c
+go to a and only then go to b without returning to a,& & U ! b a F b U ! a U a U !a b
+visit a then b then c and then d you can only visit each landmark once,& & U ! b a & U ! c b & U ! d c F d & U ! a U a U !a b & U ! b U b U !b c U ! c U c U !c d
+visit a exactly once while avoiding b and c then visit b exactly once while avoiding c finally visit c,& & U ! b a & U ! c b F c & U ! a U a U !a b U ! b U b U !b c
+visit a,F a
+visit a and then b,F & a F b
+keep going to a and b in arbitrary order,& G F a G F b
+visit a b c d and h in this order there can be other landmarks in between,F & a F & b F & c F & d F h
+make sure a b c d and h are all visited,& F a & F b & F c & F d F h
+keep visiting a,G F a
+reach a,F a
+go to a b and c in any order,& F a & F b F c
+visit b and a,& F a F b
+do not visit c until you visit b visit b only once do no visit b until you visit a visit a only once,& & U ! b a & U ! c b F c & U ! a U a U !a b U ! b U b U !b c
+do not visit d until you visit c visit c only once do not visit c until you visit b visit b only once do no visit b until you visit a visit a only once,& & U ! b a & U ! c b & U ! d c F d & U ! a U a U !a b & U ! b U b U !b c U ! c U c U !c d
+only visit a once and do not visit b until you visit a,& & U ! b a F b U ! a U a U !a b
+visit a b c d in that specific order,& U ! b a & U ! c b & U ! d c F d
+make sure a b and c are all visited,& F a & F b F c
+make sure a and b are visited infinitely,& G F a G F b
+visit a,F a

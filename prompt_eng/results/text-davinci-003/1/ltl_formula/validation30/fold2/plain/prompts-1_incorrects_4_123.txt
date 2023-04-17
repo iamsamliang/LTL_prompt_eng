@@ -1,0 +1,5 @@
+Model_output, Ground_truth, LTL_type, Num_props, Instruction
+F & a F b,& F a F b,visit,2,visit a and b
+F & b F a,& F a F b,visit,2,visit b and a
+& & U ! b a & U ! c b & U ! d c F d & U ! a U a U ! a b & U ! b U b U ! b c & U ! c U c U ! c d U ! d U d U ! d h,& & U ! b a & U ! c b & U ! d c F d & U ! a U a U ! a b & U ! b U b U ! b c U ! c U c U ! c d,strictly_ordered_visit,4,visit a then b then c and then d you can only visit each landmark once
+Accuracy: 0.4666666666666667

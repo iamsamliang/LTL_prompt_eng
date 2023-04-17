@@ -1,0 +1,11 @@
+Model_output, Ground_truth, LTL_type, Num_props, Instruction
+(!b U a),& U ! b a F b,ordered_visit,2,go to b but do not go to b until you go to a first
+(!b U a),& U ! b a F b,ordered_visit,2,find b but not until you find a first
+Fa,G F a,patrolling,1,continue moving to a
+(!b U a) & (!c U b) & (!d U c) & (!h U d) & Fh,F & a F & b F & c F & d F h,sequenced_visit,5,visit a b c d and h sequentially
+(!b U a) & (!c U b) & (!d U c) & (!h U d) & Fh,F & a F & b F & c F & d F h,sequenced_visit,5,visit a then visit b then visit c then visit d and then visit h
+(!b U a) & (!c U b) & (!d U c) & (!h U d),F & a F & b F & c F & d F h,sequenced_visit,5,visit b at least once after visiting a visit c at least once after visiting both a and b visit d at least once after visiting a b and c and visit h at least once after visiting a b c and d
+(!b U a) & (!c U b) & (!d U c) & Fh,F & a F & b F & c F & d F h,sequenced_visit,5,go to a then go to b and then reach c then reach d and finally go to h
+F(a & F(b & F(c & Fd))),& U ! b a & U ! c b & U ! d c F d,ordered_visit,4,visit a b c d in that specific order
+Ga & Gb,& G F a G F b,patrolling,2,always keep visiting a and b
+Accuracy: 0.7

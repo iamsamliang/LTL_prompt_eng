@@ -1,0 +1,69 @@
+Your task is to translate English instructions into linear temporal logic (LTL) formulas.
+
+Q: What is "go to a" in LTL?
+A: F a
+
+Q: What is "stop by a and b" in LTL?
+A: & F a F b
+
+Q: What is "you must go to c a and b at least once " in LTL?
+A: & F a & F b F c
+
+Q: What is "move to a b c and d in any order" in LTL?
+A: & F a & F b & F c F d
+
+Q: What is "find the following a b c d h" in LTL?
+A: & F a & F b & F c & F d F h
+
+Q: What is "go to b after visiting a" in LTL?
+A: F & a F b
+
+Q: What is "go to a then go to b then go to c" in LTL?
+A: F & a F & b F c
+
+Q: What is "ensure that you visit a b c and d in order" in LTL?
+A: F & a F & b F & c F d
+
+Q: What is "head to a and then to b after a is visited and then to c after b is visited and then to d after c is visited and then to h after d is visited" in LTL?
+A: F & a F & b F & c F & d F h
+
+Q: What is "visit a at least once do not visit b or c before a then visit b at least once do not visit c before b finally visit c" in LTL?
+A: & U ! b a & U ! c b F c
+
+Q: What is "first go to a once without visiting b then go to b" in LTL?
+A: & & U ! b a F b U ! a U a U ! a b
+
+Q: What is "visit a only once without visiting b then visit b one time without visiting c finally visit c in the future" in LTL?
+A: & & U ! b a & U ! c b F c & U ! a U a U ! a b U ! b U b U ! b c
+
+Q: What is "visit a one time but not through b c or d and then visit b once but not through a c or d and then visit c once but not through a b or d and then visit d once but not through a b or c" in LTL?
+A: & & U ! b a & U ! c b & U ! d c F d & U ! a U a U ! a b & U ! b U b U ! b c U ! c U c U ! c d
+
+Q: What is "don not stop visiting a b and c" in LTL?
+A: & & U ! b a & U ! c b & U ! d c & U ! h d F h & U ! a U a U ! a b & U ! b U b U ! b c & U ! c U c U ! c d U ! d U d U ! d h
+
+Q: What is "go to a while avoiding b and then go to b" in LTL?
+A: & U ! b a F b
+
+Q: What is "keep going to a" in LTL?
+A: G F a
+
+Q: What is "visit a b c and d in this order without skipping any one of them" in LTL?
+A: & U ! b a & U ! c b & U ! d c F d
+
+Q: What is "ensure that you visit h but only after d in turn only visit d after c only visit c after b and only visit b after a" in LTL?
+A: & U ! b a & U ! c b & U ! d c & U ! h d F h
+
+Q: What is "at any point in time ensure that you will visit a b and c at least once in the future" in LTL?
+A: & G F a & G F b G F c
+
+Q: What is "go to a b c and d over and over again" in LTL?
+A: & G F a & G F b & G F c G F d
+
+Q: What is "go to a b c d and h infinitely often" in LTL?
+A: & G F a & G F b & G F c & G F d G F h
+
+Q: What is "keep on visiting a and b" in LTL?
+A: & G F a G F b
+
+Q:
