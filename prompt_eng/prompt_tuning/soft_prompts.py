@@ -80,11 +80,11 @@ class T5PromptTuning(T5ForConditionalGeneration):
         # (confirmed) self.config.pad_token_id == tokenizer.pad_token_id 
         # create the decoder_inputs_embeds
         decoder_input_ids = shift_tokens_right(tok_ltl, self.config.pad_token_id, self.config.decoder_start_token_id)
-        decoder_inputs_embeds = self.get_input_embeddings()(decoder_input_ids)
+        # decoder_inputs_embeds = self.get_input_embeddings()(decoder_input_ids)
 
 
         # Call the original model's forward method with the modified inputs
-        return super().forward(inputs_embeds=prompt_inputs_embedded, attention_mask=attention_mask, decoder_inputs_embeds=decoder_inputs_embeds)
+        return super().forward(inputs_embeds=prompt_inputs_embedded, attention_mask=attention_mask, decoder_input_ids=decoder_input_ids)
 
 # Set up a custom Trainer for T5PromptTuning
 class T5PromptTuningTrainer(Trainer):
@@ -100,7 +100,7 @@ class T5PromptTuningTrainer(Trainer):
         logits = outputs.get("logits")
 
         # calculate the loss using CrossEntropyLoss
-        loss_fct = torch.nn.CrossEntropyLoss(ignore_index=-100)
+        loss_fct = torch.nn.CrossEntropyLoss(ignore_index=0)
         loss = loss_fct(logits.view(-1, logits.size(-1)), labels.view(-1))
 
         return (loss, outputs) if return_outputs else loss

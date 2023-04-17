@@ -1,0 +1,50 @@
+{
+    "os": "Windows-10-10.0.22621-SP0",
+    "python": "3.9.13",
+    "heartbeatAt": "2023-04-17T19:18:51.145607",
+    "startedAt": "2023-04-17T19:18:50.326078",
+    "docker": null,
+    "cuda": null,
+    "args": [],
+    "state": "running",
+    "program": "C:\\Users\\darkd\\OneDrive\\Desktop\\LTL_prompt_eng\\prompt_eng\\prompt_tuning\\soft_prompts.py",
+    "codePath": "prompt_eng\\prompt_tuning\\soft_prompts.py",
+    "git": {
+        "remote": "https://github.com/iamsamliang/LTL_prompt_eng.git",
+        "commit": "8bafd442c1b8e2cce16e234e1c56c7c62cbf41d6"
+    },
+    "email": "darkdragn20000@gmail.com",
+    "root": "C:/Users/darkd/OneDrive/Desktop/LTL_prompt_eng",
+    "host": "DESKTOP-DV3IVOV",
+    "username": "darkd",
+    "executable": "C:\\Users\\darkd\\miniforge3\\envs\\myenv\\python.exe",
+    "cpu_count": 12,
+    "cpu_count_logical": 24,
+    "cpu_freq": {
+        "current": 3701.0,
+        "min": 0.0,
+        "max": 3701.0
+    },
+    "cpu_freq_per_core": [
+        {
+            "current": 3701.0,
+            "min": 0.0,
+            "max": 3701.0
+        }
+    ],
+    "disk": {
+        "total": 935.9706993103027,
+        "used": 838.9783782958984
+    },
+    "gpu": "NVIDIA GeForce RTX 3080",
+    "gpu_count": 1,
+    "gpu_devices": [
+        {
+            "name": "NVIDIA GeForce RTX 3080",
+            "memory_total": 10737418240
+        }
+    ],
+    "memory": {
+        "total": 31.926837921142578
+    }
+}
