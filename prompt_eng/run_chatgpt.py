@@ -21,22 +21,39 @@ from models_util import chatgpt_complete
 openai.api_key = "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"
 openai.organization = "org-g3Ul3oNaC7RRJGYw9fy78mdi"
 
-def run_experiment(dataset_object, max_tokens, model_name, batch_identifier, is_cot, temp=0, n=1, fold=None):
+def run_experiment(dataset_object, max_tokens, model_name, batch_identifier, is_cot, temp=0, n=1, fold=None, iter_num=None):
     # smaller datasets
     # test_dataset = dataset_object.get('smaller_valid')
     # validation_meta = dataset_object.get('smaller_valid_meta')
 
-    # full datasets
-    test_dataset = dataset_object.get('valid_iter')
+    # # full datasets
+    # test_dataset = dataset_object.get('valid_iter')
 
-    rewritten_dataset = rewrite_instruc(test_dataset, max_tokens, model_name, temp, n)
-    with open(f'ltl_formula_rewritten_{fold}.pkl', 'wb') as f:
-        pickle.dump(rewritten_dataset, f) # [(rewritten_instruction, ground_truth)]
-    return
+    # rewritten_dataset = rewrite_instruc(test_dataset, max_tokens, model_name, temp, n)
+    # with open(f'ltl_formula_rewritten_{fold}.pkl', 'wb') as f:
+    #     pickle.dump(rewritten_dataset, f) # [(rewritten_instruction, ground_truth)]
+    # return
+
+    holdout_type = dataset_object.get('holdout_type')
+
+    # full datasets
+    if iter_num is None:
+        test_dataset = dataset_object.get('valid_iter')
+    else:
+        # # rewritten instructions for type/formula holdout
+        # with open(f"{holdout_type}_rewritten_{fold}.pkl", 'rb') as file:
+        #     print(f"Using {holdout_type} {fold} rewritten dataset\n\n")
+        #     # dictionary with keys ['smaller_valid', 'smaller_valid_meta', 'holdout_type', 'holdout_meta', 'seed', 'size', 'dataset_size']
+        #     test_dataset = pickle.load(file)
+
+        # rewritten instructions for utterance holdout
+        with open(f"/Users/SamLiang/Desktop/LTL_prompt_eng/prompt_eng/rewritten_instructions_iter6.pkl", 'rb') as file:
+            print(f"Using {holdout_type} rewritten dataset\n\n")
+            # dictionary with keys ['smaller_valid', 'smaller_valid_meta', 'holdout_type', 'holdout_meta', 'seed', 'size', 'dataset_size']
+            test_dataset = pickle.load(file)
 
     validation_meta = dataset_object.get('valid_meta')
 
-    holdout_type = dataset_object.get('holdout_type')
     seed = dataset_object.get('seed')
     size = dataset_object.get('size')
 
@@ -60,14 +77,14 @@ def run_experiment(dataset_object, max_tokens, model_name, batch_identifier, is_
 
     if is_cot:
         if holdout_type == "utt":
-            prompt_len = len(dataset_object.get('holdout_meta'))
+            prompt_len = len(message) // 2
         elif holdout_type == "ltl_formula":
             prompt_len = len(message) // 2
         elif holdout_type == "ltl_type":
             prompt_len = len(message) // 2
     else:
         if holdout_type == "utt":
-            prompt_len = len(dataset_object.get('holdout_meta'))
+            prompt_len = len(message) // 2
         elif holdout_type == "ltl_formula":
             prompt_len = len(message) // 2
         elif holdout_type == "ltl_type":
@@ -78,6 +95,7 @@ def run_experiment(dataset_object, max_tokens, model_name, batch_identifier, is_
     ground_truths = []
     instructions = []
     for instruction, ground_truth in test_dataset:
+        instruction = instruction.strip()
         ground_truths.append(ground_truth)
         instructions.append(instruction)
 
@@ -129,21 +147,39 @@ def run_experiment(dataset_object, max_tokens, model_name, batch_identifier, is_
         'Accuracy': total_accuracy
     }
 
-    if is_cot:
-        if holdout_type != "utt":
-            dpath = f"results/{model_name}/{batch_identifier}/{holdout_type}/validation{len(instructions)}/{seed}/{fold}/CoT"
+    if iter_num is None:
+        if is_cot:
+            if holdout_type != "utt":
+                dpath = f"results/{model_name}/{batch_identifier}/{holdout_type}/{seed}/normal/{fold}/size{len(instructions)}/CoT"
+            else:
+                dpath = f"results/{model_name}/{batch_identifier}/{holdout_type}/{seed}/normal/size{len(instructions)}/CoT"
         else:
-            dpath = f"results/{model_name}/{batch_identifier}/{holdout_type}/validation{len(instructions)}/{seed}/CoT"
+            if holdout_type != "utt":
+                dpath = f"results/{model_name}/{batch_identifier}/{holdout_type}/{seed}/normal/{fold}/size{len(instructions)}/plain"
+            else:
+                dpath = f"results/{model_name}/{batch_identifier}/{holdout_type}/{seed}/normal/size{len(instructions)}/plain"
     else:
-        if holdout_type != "utt":
-            dpath = f"results/{model_name}/{batch_identifier}/{holdout_type}/validation{len(instructions)}/{seed}/{fold}/plain"
+        if is_cot:
+            if holdout_type != "utt":
+                dpath = f"results/{model_name}/{batch_identifier}/{holdout_type}/{seed}/rewritten/{iter_num}/{fold}/size{len(instructions)}/CoT"
+            else:
+                dpath = f"results/{model_name}/{batch_identifier}/{holdout_type}/{seed}/rewritten/{iter_num}/size{len(instructions)}/CoT"
         else:
-            dpath = f"results/{model_name}/{batch_identifier}/{holdout_type}/validation{len(instructions)}/{seed}/plain"
+            if holdout_type != "utt":
+                dpath = f"results/{model_name}/{batch_identifier}/{holdout_type}/{seed}/rewritten/{iter_num}/{fold}/size{len(instructions)}/plain"
+            else:
+                dpath = f"results/{model_name}/{batch_identifier}/{holdout_type}/{seed}/rewritten/{iter_num}/size{len(instructions)}/plain"
 
-    save_result_path = f"{dpath}/prompts{prompt_len}_{size}_{seed}.json"
-    output_path = f"{dpath}/prompts{prompt_len}_model_output_{size}_{seed}.txt"
-    parsed_output_path = f"{dpath}/prompts{prompt_len}_parsed_output_{size}_{seed}.txt"
-    incorrects_path = f"{dpath}/prompts{prompt_len}_incorrects_{size}_{seed}.txt"
+    if iter_num is None:
+        save_result_path = f"{dpath}/prompts{prompt_len}_{size}_{seed}_plain.json"
+        output_path = f"{dpath}/prompts{prompt_len}_model_output_{size}_{seed}_plain.txt"
+        parsed_output_path = f"{dpath}/prompts{prompt_len}_parsed_output_{size}_{seed}_plain.txt"
+        incorrects_path = f"{dpath}/prompts{prompt_len}_incorrects_{size}_{seed}_plain.txt"
+    else:
+        save_result_path = f"{dpath}/prompts{prompt_len}_{size}_{seed}_rewritten_{iter_num}.json"
+        output_path = f"{dpath}/prompts{prompt_len}_model_output_{size}_{seed}_rewritten_{iter_num}.txt"
+        parsed_output_path = f"{dpath}/prompts{prompt_len}_parsed_output_{size}_{seed}_rewritten_{iter_num}.txt"
+        incorrects_path = f"{dpath}/prompts{prompt_len}_incorrects_{size}_{seed}_rewritten_{iter_num}.txt"
     if not os.path.exists(dpath):
         os.makedirs(f"{dpath}/")
 
@@ -179,12 +215,8 @@ def create_message(prompt_txt):
 
   # don't want start nor ending line 2 lines (which are '\n' and 'Q: ')
   for i in range(2, len(lines) - 2, 3):
-    print(i)
     q = lines[i].strip()[3:]  # remove "Q: " from the beginning of the line. Strip() removes '\n' as well
     a = lines[i+1].strip()[3:]  # remove "A: " from the beginning of the line
-    print("q: ", q)
-    print("a: ", a)
-    print()
     message.append({"role": "user", "content": q})
     message.append({"role": "assistant", "content": a})
 
@@ -258,38 +290,40 @@ def rewrite_instruc(test_dataset, max_tokens, model_name, temp, n):
 
 
 if __name__ == '__main__':
-  # use [gpt-3.5-turbo]
-  models = ['gpt-3.5-turbo']
+    # use [gpt-3.5-turbo]
+    models = ['gpt-3.5-turbo']
 
-  ### CHANGE THESE ###
-  ###########################################
-  batch_identifier = 1
-#   fold = "fold1"
-  size = 0.92
-  seed = 123 # 484 or 123
-  is_cot = False
-
-  ### utterance holdout ###
-#   dataset_path = f'data/holdout_batch{batch_identifier}_noperm/symbolic_batch{batch_identifier}_noperm_utt_{size}_{seed}.pkl'
-
-  ### type holdout ###
-  # fold0 and fold1
-#   dataset_path = f'data/holdout_batch{batch_identifier}_noperm/symbolic_batch{batch_identifier}_noperm_ltl_type_2_123_{fold}.pkl'
-
-  folds = ["fold2", "fold3", "fold4"]
-  for fold in folds:
-  ### formula holdout ###
-    dataset_path = f'data/holdout_batch{batch_identifier}_noperm/symbolic_batch{batch_identifier}_noperm_ltl_formula_4_123_{fold}.pkl'
-
+    ### CHANGE THESE ###
     ###########################################
+    batch_identifier = 1
+    #   fold = "fold1"
+    size = 0.92
+    seed = 484 # 484 or 123
+    is_cot = True
+    iter_num = "iter6"
+
+    ### utterance holdout ###
+    fold = None
+    dataset_path = f'data/holdout_batch{batch_identifier}_noperm/symbolic_batch{batch_identifier}_noperm_utt_{size}_{seed}.pkl'
+
+    # ### type holdout ###
+    # # fold0 and fold1
+    # dataset_path = f'data/holdout_batch{batch_identifier}_noperm/symbolic_batch{batch_identifier}_noperm_ltl_type_2_123_{fold}.pkl'
+
+    # folds = ["fold2", "fold3", "fold4"]
+    # for fold in folds:
+    # ### formula holdout ###
+    #     dataset_path = f'data/holdout_batch{batch_identifier}_noperm/symbolic_batch{batch_identifier}_noperm_ltl_formula_4_123_{fold}.pkl'
+
+    # ###########################################
 
     with open(dataset_path, 'rb') as file:
         # dictionary with keys ['smaller_valid', 'smaller_valid_meta', 'holdout_type', 'holdout_meta', 'seed', 'size', 'dataset_size']
         dataset_object = pickle.load(file)
 
     max_tokens = 400
-    temperature = 0
+    temperature = 0.1
 
     for model_name in models:
         run_experiment(dataset_object, max_tokens, model_name,
-                        batch_identifier, is_cot=is_cot, temp=temperature, n=1, fold=fold)
+                        batch_identifier, is_cot=is_cot, temp=temperature, n=1, fold=fold, iter_num=iter_num)

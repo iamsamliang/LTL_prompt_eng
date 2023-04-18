@@ -5,6 +5,20 @@ from torch.utils.data import DataLoader
 from datasets import load_dataset, load_metric
 import numpy as np
 import json
+from pynvml import *
+
+def print_gpu_utilization():
+    nvmlInit()
+    handle = nvmlDeviceGetHandleByIndex(0)
+    info = nvmlDeviceGetMemoryInfo(handle)
+    print(f"GPU memory occupied: {info.used//1024**2} MB.")
+
+
+def print_summary(result):
+    print(f"Time: {result.metrics['train_runtime']:.2f}")
+    print(f"Samples/second: {result.metrics['train_samples_per_second']:.2f}")
+    print_gpu_utilization()
+
 
 # copied from transformers.models.bart.modeling_bart
 def shift_tokens_right(input_ids: torch.Tensor, pad_token_id: int, decoder_start_token_id: int):
@@ -109,9 +123,7 @@ class CustomDataCollator(DataCollatorWithPadding):
     def __call__(self, features):
         # Batch the input tensors without padding
         batch = {}
-        print("Features length:", len(features))
         for key in features[0].keys():
-            print(f"Key: {key}")
             batch[key] = torch.stack([example[key] for example in features])
         return batch
 
@@ -138,8 +150,6 @@ if __name__ == '__main__':
 
     train_dataset.set_format(type="torch", columns=["tok_instruction", "attention_mask", "tok_ltl"])
     test_dataset.set_format(type="torch", columns=["tok_instruction", "attention_mask", "tok_ltl"])
-
-    print(train_dataset["tok_instruction"])
     
     # Create a DataLoader for your dataset
     # train_dataloader = DataLoader(train_dataset, batch_size=32, shuffle=True)
@@ -154,11 +164,19 @@ if __name__ == '__main__':
 
     custom_collator = CustomDataCollator(tokenizer=tokenizer)
 
+    mps_avail = False
+    if torch.backends.mps.is_available():
+        print("M1 GPUs available\n")
+        mps_avail = True
+
     # Set up training arguments
     training_args = TrainingArguments(
         output_dir="./ptuning_weights",
         num_train_epochs=20,
-        per_device_train_batch_size=32,
+        per_device_train_batch_size=4,
+        gradient_accumulation_steps=8, #  uses less memory, slows training as steps increase
+        # gradient_checkpointing=True, # uses less memory but slows training by 20%
+        # fp16=True, # speed up training but uses more memory. Only available on CUDA devices
         logging_dir="./ptuning_logs",
         logging_steps=250,
         learning_rate=0.3,
@@ -176,6 +194,7 @@ if __name__ == '__main__':
         save_total_limit=5,
         dataloader_num_workers=6,
         remove_unused_columns=False,
+        use_mps_device=mps_avail,
     )
 
 
@@ -195,13 +214,15 @@ if __name__ == '__main__':
     print(f"Model is on device: {device}")
 
     # Train the model
-    trainer.train()
+    result = trainer.train()
     trainer.save_model("ptuning_weights")
 
     eval_results = trainer.evaluate()
 
     with open("ptuning_result/evaluation_results.json", "w") as f:
         json.dump(eval_results, f)
+
+    print_summary(result)
 
 ############################################################################
 
