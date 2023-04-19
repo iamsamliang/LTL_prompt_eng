@@ -1,0 +1,99 @@
+Fa & Fb & Fc, & F a & F b F c
+Fc & Fa & Fb, & F a & F b F c
+Fc & Fb, & F a & F b F c
+(!b U a) & (!c U b) & Fc, F & a F & b F c
+(!b U a) & (!c U b) & Fc, F & a F & b F c
+(!b U a) & (!c U b) & (!d U c) & (!h U d) & (!a U (a U (!a U b))) & (!b U (b U (!b U c))) & (!c U (c U (!c U d))) & (!d U (d U (!d U h))), & & U ! b a & U ! c b & U ! d c & U ! h d F h & U ! a U a U ! a b & U ! b U b U ! b c & U ! c U c U ! c d U ! d U d U ! d h
+(!b U a) & (!c U b) & (!d U c) & (!h U d) & Fh, & & U ! b a & U ! c b & U ! d c & U ! h d F h & U ! a U a U ! a b & U ! b U b U ! b c & U ! c U c U ! c d U ! d U d U ! d h
+(!b U a) & (!c U b) & (!d U c) & (!h U d) & Fh & (!a U (a U (!a U b))) & (!b U (b U (!b U c))) & (!c U (c U (!c U d))), & & U ! b a & U ! c b & U ! d c & U ! h d F h & U ! a U a U ! a b & U ! b U b U ! b c & U ! c U c U ! c d U ! d U d U ! d h
+Fa & Fb & Fc, & F a & F b F c
+Fa & Fb & Fc, & F a & F b F c
+Fa & Fb & Fc, & F a & F b F c
+Fa & Fb & Fc, & F a & F b F c
+Fa & Fb & Fc, & F a & F b F c
+Fa -> Fb & Fb -> Fc, F & a F & b F c
+(!b U a) & (!c U b) & Fc, F & a F & b F c
+Fa & (a -> Fb) & (a & b -> Fc), F & a F & b F c
+(!b U a) & (!c U b) & Fc, F & a F & b F c
+Fa -> Fb & Fb -> Fc, F & a F & b F c
+Fa & Fb & Fc, & F a & F b F c
+(a -> Fb) & (b -> Fc), & F a & F b F c
+(Fa & Fb & Fc) U (!a & !b & !c), & F a & F b F c
+Fa & Fb & Fc, & F a & F b F c
+Fa & Fb & Fc, & F a & F b F c
+Fa & Fb & Fc, & F a & F b F c
+Fa & Fb & Fc, & F a & F b F c
+Fa & Fb & Fc, & F a & F b F c
+Fa & Fb & Fc, & F a & F b F c
+Fa & Fb & Fc, & F a & F b F c
+Fa & Fb & Fc, & F a & F b F c
+Fa & Fb & Fc, & F a & F b F c
+eans that eventually, at some point in the future, we will visit both landmarks C and , & F a & F b F c
+Fc & Fa & Fb, & F a & F b F c
+Fa & Fb & Fc, & F a & F b F c
+(!b U a) & (!c U (b & !d & !h)) & (!d U (c & !h)) & (!h U d) & Fh & (!a U (a U (!a U b))) & (!b U (b U (!b U c))) & (!c U (c U (!c U d))) & (!d U (d U (!d U h))) & (!h U (h U (!a U b U c U d U h))), & & U ! b a & U ! c b & U ! d c & U ! h d F h & U ! a U a U ! a b & U ! b U b U ! b c & U ! c U c U ! c d U ! d U d U ! d h
+(!b U a) & (!c U b) & (!d U c) & (!h U d) & Fh, & & U ! b a & U ! c b & U ! d c & U ! h d F h & U ! a U a U ! a b & U ! b U b U ! b c & U ! c U c U ! c d U ! d U d U ! d h
+(!b U a) & (!c U b) & (!d U c) & (!h U d) & Fh, & & U ! b a & U ! c b & U ! d c & U ! h d F h & U ! a U a U ! a b & U ! b U b U ! b c & U ! c U c U ! c d U ! d U d U ! d h
+(a -> (!b U (b & !c & !d & !h))) & ((a -> (!b U (b & !c & !d & !h))) | ((!a U (a U (!a U c))) & ((!a & !b) -> (!c U !d & !h)))) & ((!c U (!d & !h)) | ((!a & !b & !c) -> (!d U !h))) & (!h U (!a & !b & !c & !d)), & & U ! b a & U ! c b & U ! d c & U ! h d F h & U ! a U a U ! a b & U ! b U b U ! b c & U ! c U c U ! c d U ! d U d U ! d h
+(!b U a) & (!c U b) & (!d U c) & (!h U d) & Fh, & & U ! b a & U ! c b & U ! d c & U ! h d F h & U ! a U a U ! a b & U ! b U b U ! b c & U ! c U c U ! c d U ! d U d U ! d h
+Ga & Gb & Gc & Gd & Gh, & G F a & G F b & G F c & G F d G F h
+GFa & GFb & GFc & GFd & GFh, & G F a & G F b & G F c & G F d G F h
+G(a -> b) & G(b -> c) & G(c -> d) & G(d -> h), & G F a & G F b & G F c & G F d G F h
+Ga & Gb & Gc & Gd & Gh, & G F a & G F b & G F c & G F d G F h
+Ga & Gb & Gc & Gd & Gh, & G F a & G F b & G F c & G F d G F h
+(!b U a) & (!c U b) & Fc, F & a F & b F c
+(!b U a) & (!c U b) & Fc, F & a F & b F c
+Fa & Fb & Fc, F & a F & b F c
+(!b U a) & (!c U b) & Fc, F & a F & b F c
+G a & G b & G c, & & U ! b a & U ! c b & U ! d c & U ! h d F h & U ! a U a U ! a b & U ! b U b U ! b c & U ! c U c U ! c d U ! d U d U ! d h
+(!a U (a & (!a U (!b U (!c U (!d U h)))))) & (a & (!b U (!a U (!c U (!d U h)))) & (!a U b)) & (a & b & (!c U (!a U (!b U (!d U h)))) & (!a U (!b U c))) & (a & b & c & (!d U (!a U (!b U (!c U (!h U (d & h)))))) & (!a U (!b U (!c U d)))), & & U ! b a & U ! c b & U ! d c & U ! h d F h & U ! a U a U ! a b & U ! b U b U ! b c & U ! c U c U ! c d U ! d U d U ! d h
+(!b U a) & (!c U b) & (!d U c) & (!h U d) & (!a U (a U (!a U b))) & (!b U (b U (!b U c))) & (!c U (c U (!c U d))) & (!d U (d U (!d U h))) & (!h U (h U (!h))), & & U ! b a & U ! c b & U ! d c & U ! h d F h & U ! a U a U ! a b & U ! b U b U ! b c & U ! c U c U ! c d U ! d U d U ! d h
+(!b U a) & (!c U b) & (!d U c) & (!h U d) & (!a U (a U (!a U b))) & (!b U (b U (!b U c))) & (!c U (c U (!c U d))) & (!d U (d U (!d U h))) & (!h U (h U true)), & & U ! b a & U ! c b & U ! d c & U ! h d F h & U ! a U a U ! a b & U ! b U b U ! b c & U ! c U c U ! c d U ! d U d U ! d h
+Fa & Fb & Fc, & F a & F b F c
+Fa & Fb & Fc, & F a & F b F c
+Fa & Fb & Fc, & F a & F b F c
+G(h & (d & (c & (b & (a U b)))))), & G F a & G F b & G F c & G F d G F h
+G(Fb & Fc & Fa & Fd & Fh), & G F a & G F b & G F c & G F d G F h
+GF(a & Fd & Fc & Fh & Fb) & G(a & Fd & Fc & Fh & Fb) -> (X(a & Fd & Fc & Fh & Fb)), & G F a & G F b & G F c & G F d G F h
+G(a & b & c & d & h) & F(a & b & c & d & h), & G F a & G F b & G F c & G F d G F h
+Fd & Fh & Fb & (Fc & Fa), & G F a & G F b & G F c & G F d G F h
+Fa & (Fa -> Fb) & (Fb -> Fc), F & a F & b F c
+(a -> Fb) & (b -> Fc), F & a F & b F c
+(a -> Fb) & (b -> Fc), F & a F & b F c
+Fa -> Fb & Fb -> Fc, F & a F & b F c
+Fa & (Fa -> Fb) & (Fb -> Fc), F & a F & b F c
+G(c & Ga & Gd & Gh & Gb), & G F a & G F b & G F c & G F d G F h
+Fa & Fb & Fh & Fd & Fc & G(a & b & h & d & c), & G F a & G F b & G F c & G F d G F h
+G d & G (d -> G c) & G (c -> G h) & G (h -> G b) & G (b -> G a), & G F a & G F b & G F c & G F d G F h
+Gc & Fc & G(a -> (c U a)) & Fh & G(h -> (a & c U h)) & Fb & G(b -> (h & a & c U b)) & Fd & G(d -> (b & h & a & c U d)), & G F a & G F b & G F c & G F d G F h
+G a & G b & G c & G d & G h, & G F a & G F b & G F c & G F d G F h
+G(a & b & c & d & h), & G F a & G F b & G F c & G F d G F h
+Fa & Fb & Fc & Fd & Fh, & G F a & G F b & G F c & G F d G F h
+G(Fa & Fb & Fc & Fd & Fh), & G F a & G F b & G F c & G F d G F h
+Ga & Gb & Gc & Gd & Gh, & G F a & G F b & G F c & G F d G F h
+G(Fa & Fb & Fc & Fd & Fh), & G F a & G F b & G F c & G F d G F h
+(!B U A) & (!C U B) & (!D U C) & (!H U D) & FH & (!A U (A U (!A U B))) & (!B U (B U (!B U C))) & (!C U (C U (!C U D))) & (!D U (D U (!D U H))), & & U ! b a & U ! c b & U ! d c & U ! h d F h & U ! a U a U ! a b & U ! b U b U ! b c & U ! c U c U ! c d U ! d U d U ! d h
+(!B U A) & (!C U B) & (!D U C) & (!H U D) & FH, & & U ! b a & U ! c b & U ! d c & U ! h d F h & U ! a U a U ! a b & U ! b U b U ! b c & U ! c U c U ! c d U ! d U d U ! d h
+(!B U A) & (!C U B) & (!D U C) & (!H U D) & (!A U (A U (!A U B))) & (!B U (B U (!B U C))) & (!C U (C U (!C U D))), & & U ! b a & U ! c b & U ! d c & U ! h d F h & U ! a U a U ! a b & U ! b U b U ! b c & U ! c U c U ! c d U ! d U d U ! d h
+(!b U a) & (!c U b) & (!d U c) & (!h U d) & Fh, & & U ! b a & U ! c b & U ! d c & U ! h d F h & U ! a U a U ! a b & U ! b U b U ! b c & U ! c U c U ! c d U ! d U d U ! d h
+(!b U a) & (!c U b) & (!d U c) & (!h U d) & Fh, & & U ! b a & U ! c b & U ! d c & U ! h d F h & U ! a U a U ! a b & U ! b U b U ! b c & U ! c U c U ! c d U ! d U d U ! d h
+(!b U a) & (!c U b) & (!d U c) & (!h U d) & Fh & (!a U (a U (!a U b))) & (!b U (b U (!b U c))) & (!c U (c U (!c U d))) & (!d U (d U (!d U h))) & (!h U F h), & & U ! b a & U ! c b & U ! d c & U ! h d F h & U ! a U a U ! a b & U ! b U b U ! b c & U ! c U c U ! c d U ! d U d U ! d h
+Fa -> Fb & Fb -> Fc, F & a F & b F c
+(!b U a) & (!c U b) & Fc, F & a F & b F c
+Fa & Fb & Fc, F & a F & b F c
+(!b U a) & (!c U b), F & a F & b F c
+Fa -> Fb & Fb -> Fc, F & a F & b F c
+G(a & b & c & d & h) & F(a & b & c & d & h), & G F a & G F b & G F c & G F d G F h
+Ga & Gb & Gc & Gd & Gh, & G F a & G F b & G F c & G F d G F h
+Ga & Gb & Gc & Gd & Gh, & G F a & G F b & G F c & G F d G F h
+G(F(a & b & c & d & h)), & G F a & G F b & G F c & G F d G F h
+(!b U a) & (!c U b) & (!d U c) & (!h U d), & & U ! b a & U ! c b & U ! d c & U ! h d F h & U ! a U a U ! a b & U ! b U b U ! b c & U ! c U c U ! c d U ! d U d U ! d h
+(!b U a) & (!c U b) & (!d U c) & (!h U d) & (!a U (a U (!a U b))) & (!b U (b U (!b U c))) & (!c U (c U (!c U d))) & (!d U (d U (!d U h))) & Fh, & & U ! b a & U ! c b & U ! d c & U ! h d F h & U ! a U a U ! a b & U ! b U b U ! b c & U ! c U c U ! c d U ! d U d U ! d h
+(!A U (A U (!A U B))) & (G(!C U B)) & (G(!D U C)) & (G(!H U D)) & F H, & & U ! b a & U ! c b & U ! d c & U ! h d F h & U ! a U a U ! a b & U ! b U b U ! b c & U ! c U c U ! c d U ! d U d U ! d h
+(b U !a) & (c U !b) & (d U !c), & & U ! b a & U ! c b & U ! d c & U ! h d F h & U ! a U a U ! a b & U ! b U b U ! b c & U ! c U c U ! c d U ! d U d U ! d h
+(!B U A) & (!C U B) & (!D U C) & (!H U D) & (!A U (A U (!A U B))) & (!B U (B U (!B U C))) & (!C U (C U (!C U D))) & (!D U (D U (!D U H))) & (!H U (A & B & C & D)), & & U ! b a & U ! c b & U ! d c & U ! h d F h & U ! a U a U ! a b & U ! b U b U ! b c & U ! c U c U ! c d U ! d U d U ! d h
+(a -> Fb) & (b -> Fc), F & a F & b F c
+Fa & Fb & Fc, F & a F & b F c
+Fa -> Fb -> Fc, F & a F & b F c
+Fa -> Fb & Fb -> Fc, F & a F & b F c
+Fa -> Fb & Fb -> Fc, F & a F & b F c

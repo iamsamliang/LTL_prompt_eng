@@ -1,0 +1,179 @@
+Parsed_output, Ground_truth, LTL_type, Num_props, Instruction, Model_output
+
+F(a & F(b & F(c & F(d & Fh)))) & G(!a U (a & (!b U (b & (!c U (c & (!d U d))))))), F & a F & b F & c F & d F h, sequenced_visit, 5, Visit landmarks a, b, c, d, and h in that order, with the possibility of other landmarks in between., F(a & F(b & F(c & F(d & Fh)))) & G(!a U (a & (!b U (b & (!c U (c & (!d U d)))))))
+
+F(a & F(a & Fb)), & U ! b a F b, ordered_visit, 2, First, go to a. Then, go to b, but only after you have gone to a., F(a & F(a & Fb))
+
+F(a & Fb), & U ! b a F b, ordered_visit, 2, First, find landmark a. Then, find landmark b., F(a & Fb)
+
+G(a), G F a, patrolling, 1, Always visit landmark a., G(a)
+
+G(Fa -> XFa), G F a, patrolling, 1, Keep moving towards landmark "a"., G(Fa -> XFa)
+
+G a, G F a, patrolling, 1, Always visit a., G a
+
+G(a), G F a, patrolling, 1, Always continue going to a., G(a)
+
+G a, G F a, patrolling, 1, Always visit a., G a
+
+G(a), G F a, patrolling, 1, You must always visit a., G(a)
+
+G(a), G F a, patrolling, 1, Always visit landmark a., G(a)
+
+G a, G F a, patrolling, 1, Always go to a., G a
+
+G(A), G F a, patrolling, 1, Always visit landmark A., G(A)
+
+G a, G F a, patrolling, 1, Always visit a., G a
+
+F(a & Fb) & G(!a -> !b), & U ! b a F b, ordered_visit, 2, First, visit a. Then, only after visiting a, visit b., F(a & Fb) & G(!a -> !b)
+
+F(a & Fb), & U ! b a F b, ordered_visit, 2, Visit a first, then visit b., F(a & Fb)
+
+!(a & X(!a & !b)) U (a -> Fb), & U ! b a F b, ordered_visit, 2, If you have already visited a, then go to b., !(a & X(!a & !b)) U (a -> Fb)
+
+F(a & Fb & (!a U b)), & U ! b a F b, ordered_visit, 2, First, visit landmark a. Then, visit landmark b only if you have already visited landmark a., F(a & Fb & (!a U b))
+
+F(a & F(b & F(c & F(d & Fh)))) & G((!b U a) & (!c U b) & (!d U c) & (!h U d)), F & a F & b F & c F & d F h, sequenced_visit, 5, Visit landmarks a, b, c, d, and h in sequence., F(a & F(b & F(c & F(d & Fh)))) & G((!b U a) & (!c U b) & (!d U c) & (!h U d))
+
+F(a & F(b & F(c & F(d & Fh)))) & G((!b U a) & (!c U b) & (!d U c) & (!h U d)), F & a F & b F & c F & d F h, sequenced_visit, 5, Visit landmarks a, b, c, d, and h in sequence., F(a & F(b & F(c & F(d & Fh)))) & G((!b U a) & (!c U b) & (!d U c) & (!h U d))
+
+(!c U (b & Fc)) & (!d U (a & b & Fc & Fd)) & (!h U (a & b & c & Fd & Fh)), F & a F & b F & c F & d F h, sequenced_visit, 5, Visit b, then visit c after visiting both a and b, then visit d after visiting a, b, and c, and finally visit h after visiting a, b, c, and d., (!c U (b & Fc)) & (!d U (a & b & Fc & Fd)) & (!h U (a & b & c & Fd & Fh))
+
+(!b U a) & (!c U b) & (!d U c) & (!h U d) & Fh & (!a U (a U (!a U b))) & (!b U (b U (!b U c))) & (!c U (c U (!c U d))) & (!d U (d U (!d U h))), F & a F & b F & c F & d F h, sequenced_visit, 5, First, visit landmark a. Then, proceed to landmark b. After that, make your way to landmark c. Once you have reached landmark c, continue on to landmark d. Finally, make your way to landmark h., (!b U a) & (!c U b) & (!d U c) & (!h U d) & Fh & (!a U (a U (!a U b))) & (!b U (b U (!b U c))) & (!c U (c U (!c U d))) & (!d U (d U (!d U h)))
+
+F(a -> Fb) or equivalently, F(a -> Xb), & U ! b a F b, ordered_visit, 2, Visit b after visiting a., F(a -> Fb) or equivalently, F(a -> Xb)
+
+F(a & Fb), & U ! b a F b, ordered_visit, 2, First, visit landmark a. Then, visit landmark b., F(a & Fb)
+
+F(a & Fb), & U ! b a F b, ordered_visit, 2, First, go to a. Then, you can eventually reach b., F(a & Fb)
+
+F(a -> Fb), & U ! b a F b, ordered_visit, 2, Visit b after reaching a., F(a -> Fb)
+
+(a & !b & !c & !d) U (b & !c & !d) U (c & !d) U d, & U ! b a & U ! c b & U ! d c F d, ordered_visit, 4, Visit landmarks a, b, c, and d in that specific order without visiting any waypoints out of turn., (a & !b & !c & !d) U (b & !c & !d) U (c & !d) U d
+
+F(a & F(b & F(c & Fd))), & U ! b a & U ! c b & U ! d c F d, ordered_visit, 4, First, go to landmark A. Then, once you have arrived at A, proceed to landmark B. After you have arrived at B, proceed to landmark C. Once you have arrived at C, proceed to landmark D., F(a & F(b & F(c & Fd)))
+
+(!B U A) & (!C U B) & (D -> F C), & U ! b a & U ! c b & U ! d c F d, ordered_visit, 4, First, visit landmark A. Then, visit landmark B. After visiting B, visit landmark C. Once you have reached C, you may visit landmark D, but not before., (!B U A) & (!C U B) & (D -> F C)
+
+(a & !b & !c & !d) U (b & !c & !d) U (c & !d) U d, & U ! b a & U ! c b & U ! d c F d, ordered_visit, 4, Visit landmark a, then landmark b, then landmark c, and finally landmark d in that specific order., (a & !b & !c & !d) U (b & !c & !d) U (c & !d) U d
+
+F(a & F(b & F(c & F(d & Fh))))) & (!b U a) & (!c U b) & (!d U c) & (!h U d), F & a F & b F & c F & d F h, sequenced_visit, 5, Visit landmark a, then visit landmark b after visiting a. After visiting b, visit landmark c. After visiting c, visit landmark d. Finally, visit landmark h after visiting d., F(a & F(b & F(c & F(d & Fh))))) & (!b U a) & (!c U b) & (!d U c) & (!h U d)
+
+(!b U a) & (!c U b) & (!d U c) & (!h U d) & Fh & G(!a & !b & !c & !d), F & a F & b F & c F & d F h, sequenced_visit, 5, Visit landmark a, then visit landmark b, then visit landmark c, then visit landmark d, and finally visit landmark h. Other locations may be visited in between., (!b U a) & (!c U b) & (!d U c) & (!h U d) & Fh & G(!a & !b & !c & !d)
+
+(!b U a) & (!c U b) & (!d U c) & Fd & (!a U (a U (!a U b))) & (!b U (b U (!b U c))) & (!c U (c U (!c U d))), & U ! b a & U ! c b & U ! d c F d, ordered_visit, 4, Visit landmark a. Then, visit landmark b only after visiting landmark a. Next, visit landmark c only after visiting both landmark a and b. Finally, visit landmark d only after visiting landmarks a, b, and c., (!b U a) & (!c U b) & (!d U c) & Fd & (!a U (a U (!a U b))) & (!b U (b U (!b U c))) & (!c U (c U (!c U d)))
+
+F(a & F(b & F(c & Fd))), & U ! b a & U ! c b & U ! d c F d, ordered_visit, 4, Visit landmark A, then visit landmark B, then visit landmark C, and finally visit landmark D., F(a & F(b & F(c & Fd)))
+
+(a & (!b U b)) & (b & (!c U c)) & (c & (!d U d)) & (!d U (a & (!b U b))), & U ! b a & U ! c b & U ! d c F d, ordered_visit, 4, Visit landmark a, then landmark b, then landmark c, and finally landmark d without skipping any of them., (a & (!b U b)) & (b & (!c U c)) & (c & (!d U d)) & (!d U (a & (!b U b)))
+
+(!B U A) & (!C U B) & (!D U C), & U ! b a & U ! c b & U ! d c F d, ordered_visit, 4, First, visit landmark A. Then, visit landmark B. After visiting B, you may visit landmark C. Once you have visited C, you may visit landmark D., (!B U A) & (!C U B) & (!D U C)
+
+G(a), G F a, patrolling, 1, Always visit landmark a., G(a)
+
+G a, G F a, patrolling, 1, Always visit landmark a., G a
+
+F a, G F a, patrolling, 1, Always visit a in the future., F a
+
+G a, G F a, patrolling, 1, Always visit landmark a., G a
+
+G(a & b) or equivalently G(a) & G(b), & G F a G F b, patrolling, 2, Always visit landmarks a and b., G(a & b) or equivalently G(a) & G(b)
+
+F(time_point & Fa & Fb), & G F a G F b, patrolling, 2, After a certain point in time, you must eventually visit landmarks A and B at least once., F(time_point & Fa & Fb)
+
+G(a & b), & G F a G F b, patrolling, 2, Always visit a and b., G(a & b)
+
+G a, G F a, patrolling, 1, Always visit landmark a., G a
+
+G a, G F a, patrolling, 1, Always visit landmark a., G a
+
+G a, G F a, patrolling, 1, Always visit landmark a., G a
+
+G(a), G F a, patrolling, 1, Always visit landmark a., G(a)
+
+G a, G F a, patrolling, 1, Always go to a., G a
+
+G(a -> F a), G F a, patrolling, 1, Always stop at landmark a., G(a -> F a)
+
+G a, G F a, patrolling, 1, Always visit landmark a., G a
+
+G a, G F a, patrolling, 1, Always patrol landmark a., G a
+
+G((a U b) & (b U a)), & G F a G F b, patrolling, 2, Keep moving back and forth between landmarks a and b., G((a U b) & (b U a))
+
+G(a & b), & G F a G F b, patrolling, 2, Always visit a and b., G(a & b)
+
+G(a & b) or equivalently G(a) & G(b), & G F a G F b, patrolling, 2, Always visit b and a., G(a & b) or equivalently G(a) & G(b)
+
+G(a & b), & G F a G F b, patrolling, 2, Always visit a and b., G(a & b)
+
+G(a & b), & G F a G F b, patrolling, 2, Always visit a and b., G(a & b)
+
+G(a & b), & G F a G F b, patrolling, 2, Always visit a and b., G(a & b)
+
+G(a & b), & G F a G F b, patrolling, 2, Always visit a and b., G(a & b)
+
+G(a & b) or equivalently G(a) & G(b), & G F a G F b, patrolling, 2, Always visit landmarks a and b., G(a & b) or equivalently G(a) & G(b)
+
+G a, G F a, patrolling, 1, Always visit a., G a
+
+G a, G F a, patrolling, 1, Always visit a., G a
+
+GTrue or alternatively, True U True, G F a, patrolling, 1, Always visit., GTrue or alternatively, True U True
+
+G a, G F a, patrolling, 1, Always visit a., G a
+
+G(a & b), & G F a G F b, patrolling, 2, Always visit a and b., G(a & b)
+
+G(a & b) or equivalently G(a) & G(b), & G F a G F b, patrolling, 2, Always visit landmarks a and b., G(a & b) or equivalently G(a) & G(b)
+
+G(a & b), & G F a G F b, patrolling, 2, Always visit a and b., G(a & b)
+
+F(a & Fb), & U ! b a F b, ordered_visit, 2, First visit a, then you can visit b., F(a & Fb)
+
+!b U a, & U ! b a F b, ordered_visit, 2, First, visit a before going to b., !b U a
+
+((!b & !c & !d) W (a & (!b & !c & !d))) & ((a & !c & !d) W (b & (a & !c & !d) & !c)) & ((a & b & !d) W (c & (a & b & !d) & !c & !d)) & Fd, & U ! b a & U ! c b & U ! d c F d, ordered_visit, 4, Visit landmark A multiple times while avoiding landmarks B, C, and D. Then, visit landmark B multiple times while avoiding landmarks C and D. Next, visit landmark C multiple times while avoiding landmark D. Finally, visit landmark D., ((!b & !c & !d) W (a & (!b & !c & !d))) & ((a & !c & !d) W (b & (a & !c & !d) & !c)) & ((a & b & !d) W (c & (a & b & !d) & !c & !d)) & Fd
+
+G(a & b), & G F a G F b, patrolling, 2, Always visit a and b., G(a & b)
+
+G(a & b), & G F a G F b, patrolling, 2, Always visit a and b., G(a & b)
+
+F(b & F(c & F(d & Fh))) & (!b U a) & (!c U b) & (!d U c) & (!h U d) & (!a U (a U (!a U b))) & (!b U (b U (!b U c))) & (!c U (c U (!c U d))) & (!d U (d U (!d U h))), F & a F & b F & c F & d F h, sequenced_visit, 5, Visit landmark a, then visit landmark b. After visiting landmark b, visit landmark c. Once you have visited landmark c, proceed to landmark d. After visiting landmark d, make your way to landmark h and remain there., F(b & F(c & F(d & Fh))) & (!b U a) & (!c U b) & (!d U c) & (!h U d) & (!a U (a U (!a U b))) & (!b U (b U (!b U c))) & (!c U (c U (!c U d))) & (!d U (d U (!d U h)))
+
+(a & !b & !c & !d & !h) U (b & !c & !d & !h) U (c & !d & !h) U (d & !h) U h, F & a F & b F & c F & d F h, sequenced_visit, 5, Visit landmarks a, b, c, d, and h in that order., (a & !b & !c & !d & !h) U (b & !c & !d & !h) U (c & !d & !h) U (d & !h) U h
+
+F(a & F(b & F(c & Fd))) & (!b U (b U (!b U (c & Fd)))) & (!c U (c U Fd)), & U ! b a & U ! c b & U ! d c F d, ordered_visit, 4, First, visit landmark a. Then, visit landmarks b, c, and d in any order. Next, visit landmark b before visiting landmarks c and d. After that, visit landmark c before visiting landmark d. Finally, reach landmark d., F(a & F(b & F(c & Fd))) & (!b U (b U (!b U (c & Fd)))) & (!c U (c U Fd))
+
+(a & !b & !c & !d) U (b & !a & !c & !d) U (c & !a & !b & !d) U (d & !a & !b & !c), & U ! b a & U ! c b & U ! d c F d, ordered_visit, 4, Visit landmarks a, b, c, and d in strict sequential order. You must visit the successor landmark immediately after visiting the predecessor landmark., (a & !b & !c & !d) U (b & !a & !c & !d) U (c & !a & !b & !d) U (d & !a & !b & !c)
+
+(a U (b U (c U (d & (!c U (!b U !a)))))), & U ! b a & U ! c b & U ! d c F d, ordered_visit, 4, Visit landmark a, then visit landmark b, then visit landmark c, and finally visit landmark d. Do not visit landmark d before visiting landmark c, landmark c before visiting landmark b, or landmark b before visiting landmark a., (a U (b U (c U (d & (!c U (!b U !a))))))
+
+(a & !b U b) & (b & !c U c) & (c & !d U d) & Fd, & U ! b a & U ! c b & U ! d c F d, ordered_visit, 4, Visit landmarks a, b, c, and d in that order. Do not visit b before a, c before b, or d before c., (a & !b U b) & (b & !c U c) & (c & !d U d) & Fd
+
+F(a & Fb), & U ! b a F b, ordered_visit, 2, First, visit a. Then, visit b., F(a & Fb)
+
+F(a & F(b & (!a U b))), & U ! b a F b, ordered_visit, 2, Visit a, then visit b, but do not visit b until you have visited a., F(a & F(b & (!a U b)))
+
+!b U a, & U ! b a F b, ordered_visit, 2, Always visit a before visiting b., !b U a
+
+(!b U a) & (!a U (a U b)), & U ! b a F b, ordered_visit, 2, Visit a, then go to b without visiting any other landmarks before a., (!b U a) & (!a U (a U b))
+
+(!b U a) & (a -> Fb), & U ! b a F b, ordered_visit, 2, Go to a while avoiding b. Then, once you have arrived at a, go to b., (!b U a) & (a -> Fb)
+
+F(a & Fb), & U ! b a F b, ordered_visit, 2, Go to a first, then go to b., F(a & Fb)
+
+(a & !b & !c & !d & !h) U (b & !c & !d & !h) U (c & !d & !h) U (d & !h) U h, F & a F & b F & c F & d F h, sequenced_visit, 5, Visit landmarks a, b, c, d, and h in that order., (a & !b & !c & !d & !h) U (b & !c & !d & !h) U (c & !d & !h) U (d & !h) U h
+
+F(a & F(b & F(c & F(d & Fh)))) & (!b U a) & (!c U b) & (!d U c) & (!h U d), F & a F & b F & c F & d F h, sequenced_visit, 5, Visit a, then visit b after visiting a. After visiting b, visit c. After visiting c, visit d. Finally, visit h after visiting d., F(a & F(b & F(c & F(d & Fh)))) & (!b U a) & (!c U b) & (!d U c) & (!h U d)
+
+(!b U a) & (!c U b) & (!d U c) & Fd & (!a U (a U (!a U b))) & (!b U (b U (!b U c))) & (!c U (c U (!c U d))), & U ! b a & U ! c b & U ! d c F d, ordered_visit, 4, Visit landmark a, then visit landmark b while avoiding landmark a, then visit landmark c while avoiding landmarks a and b, then visit landmark d while avoiding landmarks a, b, and c., (!b U a) & (!c U b) & (!d U c) & Fd & (!a U (a U (!a U b))) & (!b U (b U (!b U c))) & (!c U (c U (!c U d)))
+
+F(a & (!b U a)) & (Fb & (!c U b)) & (Fc & (!d U c)) & Fd, & U ! b a & U ! c b & U ! d c F d, ordered_visit, 4, Reach landmark a. Then, go to landmark b without passing landmark c. After that, go to landmark c without passing landmark d. Finally, go to landmark d., F(a & (!b U a)) & (Fb & (!c U b)) & (Fc & (!d U c)) & Fd
+
+(a U (b & !c)) & (b U (c & !d)) & Fd, & U ! b a & U ! c b & U ! d c F d, ordered_visit, 4, Visit a, then visit b without visiting c, then visit c without visiting d, and finally visit d., (a U (b & !c)) & (b U (c & !d)) & Fd
+
+(a & F(b & (b & F(c & (c & Fd)))) & (!b U a) & (!c U b) & (!d U c), & U ! b a & U ! c b & U ! d c F d, ordered_visit, 4, Visit landmark a, then landmark b, then landmark c, and finally landmark d. You must visit landmark b after landmark a, landmark c after landmark b, and landmark d after landmark c., (a & F(b & (b & F(c & (c & Fd)))) & (!b U a) & (!c U b) & (!d U c)
+
+Accuracy: 0.2903225806451613

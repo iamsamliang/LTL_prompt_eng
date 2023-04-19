@@ -1,0 +1,42 @@
+{
+    "os": "macOS-13.2.1-x86_64-i386-64bit",
+    "python": "3.9.13",
+    "heartbeatAt": "2023-04-18T19:41:08.483943",
+    "startedAt": "2023-04-18T19:40:52.952102",
+    "docker": null,
+    "cuda": null,
+    "args": [],
+    "state": "running",
+    "program": "/Users/SamLiang/Desktop/LTL_prompt_eng/prompt_eng/prompt_tuning/soft_prompts.py",
+    "codePath": "prompt_eng/prompt_tuning/soft_prompts.py",
+    "git": {
+        "remote": "https://github.com/iamsamliang/LTL_prompt_eng.git",
+        "commit": "9a928d75a37736e22406cffb3a1d68ad03fd5374"
+    },
+    "email": "darkdragn20000@gmail.com",
+    "root": "/Users/SamLiang/Desktop/LTL_prompt_eng",
+    "host": "dynamic-oit-vapornet100-10-9-172-169.princeton.edu",
+    "username": "SamLiang",
+    "executable": "/Users/SamLiang/opt/anaconda3/envs/ltl/bin/python",
+    "cpu_count": 10,
+    "cpu_count_logical": 10,
+    "cpu_freq": {
+        "current": 2400,
+        "min": 2400,
+        "max": 2400
+    },
+    "cpu_freq_per_core": [
+        {
+            "current": 2400,
+            "min": 2400,
+            "max": 2400
+        }
+    ],
+    "disk": {
+        "total": 926.3517189025879,
+        "used": 11.926689147949219
+    },
+    "memory": {
+        "total": 32.0
+    }
+}

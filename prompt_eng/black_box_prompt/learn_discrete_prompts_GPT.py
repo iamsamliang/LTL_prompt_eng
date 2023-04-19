@@ -467,7 +467,6 @@ def main():
         prompts_probs = torch.FloatTensor([[1 / prompt_search_space] * prompt_search_space] * prompt_length)
 
     prompts_probs.requires_grad = True
-    prompts_probs.to(args.device)
 
     prompt_optimizer = Adam([ {
             "params": [prompts_probs],
@@ -481,7 +480,7 @@ def main():
     print("----Optimizing black-box prompts----")
     for epoch in range(args.num_train_epochs):
         train_batches = create_batches(train_dataset, batch_size=args.per_device_train_batch_size, shuffle=True)
-        train_batches = accelerator.prepare(train_batches, device_placement=[True])
+        train_batches = accelerator.prepare(train_batches)
         print("current epoch: ", epoch)
 
         try:

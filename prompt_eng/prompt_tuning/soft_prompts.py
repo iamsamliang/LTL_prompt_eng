@@ -173,8 +173,8 @@ if __name__ == '__main__':
     training_args = TrainingArguments(
         output_dir="./ptuning_weights",
         num_train_epochs=20,
-        per_device_train_batch_size=4,
-        gradient_accumulation_steps=8, #  uses less memory, slows training as steps increase
+        per_device_train_batch_size=8,
+        gradient_accumulation_steps=4, #  uses less memory, slows training as steps increase
         # gradient_checkpointing=True, # uses less memory but slows training by 20%
         # fp16=True, # speed up training but uses more memory. Only available on CUDA devices
         logging_dir="./ptuning_logs",
@@ -215,7 +215,7 @@ if __name__ == '__main__':
 
     # Train the model
     result = trainer.train()
-    trainer.save_model("ptuning_weights")
+    trainer.save_model("./ptuning_weights")
 
     eval_results = trainer.evaluate()
 
@@ -223,41 +223,3 @@ if __name__ == '__main__':
         json.dump(eval_results, f)
 
     print_summary(result)
-
-############################################################################
-
-# def load_dataset(dataset_path):
-#     with open(dataset_path, 'rb') as file:
-#         # dictionary with keys ['smaller_valid', 'smaller_valid_meta', 'holdout_type', 'holdout_meta', 'seed', 'size', 'dataset_size']
-#         dataset_object = pickle.load(file)
-    
-#     return dataset_object
-
-# def initialize_soft_prompts(num_parameters):
-#     return torch.nn.init.xavier_uniform_(torch.empty((num_parameters)))
-
-# def learn_soft_prompts(model_name, max_gen_tokens, num_parameters, dataset_path, temp=0, num_log_probs=None, echo=False, n=1):
-#     soft_prompts = initialize_soft_prompts(num_parameters)
-#     dataset_obj = load_dataset(dataset_path)
-#     train_dataset = dataset_obj.get("train_iter")
-
-#     model = AutoModelForSeq2SeqLM.from_pretrained("google/flan-t5-xxl")
-#     tokenizer = AutoTokenizer.from_pretrained("google/flan-t5-xxl")
-
-#     input_ids = tokenizer("A step by step recipe to make bolognese pasta:", return_tensors="pt")
-    
-#     embeddings = model.get_input_embeddings()
-#     embedded_input = embeddings(input_ids)
-#     print(embedded_input)
-#     soft_prompts_embedded = torch.cat((soft_prompts, embedded_input), dim=0)
-#     print(soft_prompts_embedded)
-
-#     # outputs = model.generate(**soft_prompts_embedded) or
-#     outputs = model.generate(soft_prompts_embedded)
-
-    
-#     soft_encoded_instructs = []
-
-#     for instruction, ground_truth in train_dataset:
-#         tokenized_instruct = torch.tensor(tokenizer.encode(instruction), dtype=torch.float64)
-#         soft_encoded_instruct = torch.cat(soft_prompts, tokenized_instruct)

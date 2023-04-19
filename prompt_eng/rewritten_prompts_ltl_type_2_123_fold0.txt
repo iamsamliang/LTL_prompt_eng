@@ -1,0 +1,30 @@
+Your task is to translate English instructions into linear temporal logic (LTL) formulas.
+
+Q: What is "Arrive at landmark a." in LTL?
+A: Fa
+
+Q: What is "Visit landmarks b and a." in LTL?
+A: Fa & Fb
+
+Q: What is "Visit landmarks c, a, and b in any order." in LTL?
+A: Fa & Fb & Fc
+
+Q: What is "Visit locations a, b, d, and c." in LTL?
+A: Fa & Fb & Fc & Fd
+
+Q: What is "Eventually, visit landmarks a, c, b, h, and d." in LTL?
+A: Fa & Fb & Fc & Fd & Fh
+
+Q: What is "First, visit landmark a. Then, eventually visit landmark b. Finally, eventually visit landmark c." in LTL?
+A: (!b U a) & (!c U b) & Fc
+
+Q: What is "First, find landmark a. Then, find landmark b." in LTL?
+A: (!b U a) & Fb
+
+Q: What is "First, go to landmark A. Then, once you have arrived at A, proceed to landmark B. After you have arrived at B, proceed to landmark C. Only after you have arrived at C, proceed to landmark D." in LTL?
+A: (!b U a) & (!c U b) & (!d U c) & Fd
+
+Q: What is "Visit landmark a. Then, visit landmark b only after visiting landmark a. Next, visit landmark c only after visiting both landmark a and b. After that, visit landmark d only after visiting landmarks a, b, and c. Finally, visit landmark h only after visiting landmarks a, b, c, and d." in LTL?
+A: (!b U a) & (!c U b) & (!d U c) & (!h U d) & Fh
+
+Q:

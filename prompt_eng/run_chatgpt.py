@@ -17,6 +17,7 @@ from tenacity import (
 )  # for exponential backoff
 import pickle
 from models_util import chatgpt_complete
+import re
 
 openai.api_key = "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"
 openai.organization = "org-g3Ul3oNaC7RRJGYw9fy78mdi"
@@ -40,17 +41,17 @@ def run_experiment(dataset_object, max_tokens, model_name, batch_identifier, is_
     if iter_num is None:
         test_dataset = dataset_object.get('valid_iter')
     else:
-        # # rewritten instructions for type/formula holdout
-        # with open(f"{holdout_type}_rewritten_{fold}.pkl", 'rb') as file:
-        #     print(f"Using {holdout_type} {fold} rewritten dataset\n\n")
-        #     # dictionary with keys ['smaller_valid', 'smaller_valid_meta', 'holdout_type', 'holdout_meta', 'seed', 'size', 'dataset_size']
-        #     test_dataset = pickle.load(file)
-
-        # rewritten instructions for utterance holdout
-        with open(f"/Users/SamLiang/Desktop/LTL_prompt_eng/prompt_eng/rewritten_instructions_iter6.pkl", 'rb') as file:
-            print(f"Using {holdout_type} rewritten dataset\n\n")
+        # rewritten instructions for type/formula holdout
+        with open(f"{holdout_type}_rewritten_{fold}.pkl", 'rb') as file:
+            print(f"Using {holdout_type} {fold} rewritten dataset\n\n")
             # dictionary with keys ['smaller_valid', 'smaller_valid_meta', 'holdout_type', 'holdout_meta', 'seed', 'size', 'dataset_size']
             test_dataset = pickle.load(file)
+
+        # # rewritten instructions for utterance holdout
+        # with open(f"/Users/SamLiang/Desktop/LTL_prompt_eng/prompt_eng/rewritten_instructions_iter6.pkl", 'rb') as file:
+        #     print(f"Using {holdout_type} rewritten dataset\n\n")
+        #     # dictionary with keys ['smaller_valid', 'smaller_valid_meta', 'holdout_type', 'holdout_meta', 'seed', 'size', 'dataset_size']
+        #     test_dataset = pickle.load(file)
 
     validation_meta = dataset_object.get('valid_meta')
 
@@ -288,6 +289,82 @@ def rewrite_instruc(test_dataset, max_tokens, model_name, temp, n):
 
     return rewritten_test
 
+def extract_sentences(file_path):
+    with open(file_path, 'r') as f:
+        content = f.read()
+        pattern = re.compile(r'"([^"]*)"')
+        sentences = pattern.findall(content)
+        return sentences
+
+def rewrite_prompts(rewritten_sentences, file_path, output_file_path):
+    with open(file_path, "r") as f:
+        lines = f.readlines()
+
+    print(len(rewritten_sentences))
+    counter = 0
+    for i, line in enumerate(lines):
+        if line.startswith("Q:") and i != len(lines) - 1:
+            quote_start = line.index('"')
+            quote_end = line.index('"', quote_start + 1)
+            original_sentence = line[quote_start+1:quote_end]
+            new_sentence = rewritten_sentences[counter]
+            counter += 1
+            lines[i] = line.replace(original_sentence, new_sentence)
+
+    with open(output_file_path, "w") as f:
+        f.writelines(lines)
+
+def rewrite_prompts_(prompts, max_tokens, model_name, temp, n):
+    message = []
+
+    # iteration 6
+    message.append({"role": "system", "content": "You will rewrite English instructions that I provide into clearer English instructions, if necessary, so that they can be more easily translated to linear temporal logic formulas. You must use simple verbs. For example, use \"visit\" instead of \"go to\" or \"stop by\".  When necessary, you can use temporal connectives like \"eventually\", \"then\", \"always\", and \"until\" to specify temporal relationships between events. For example, use \"eventually\" instead of \"at some point in time\". \"a\", \"b\", \"c\", \"d\", and \"h\" are all landmarks. Write the response in the following format: Instruction: {response}. {response} should be replaced with the actual response you want to give."})
+
+    rewritten_prompts = []
+    for prompt in prompts:
+      first_if = False
+      new_message = message.copy()
+      instruction = prompt.strip()
+      new_message.append({"role": "user", "content": f'{instruction}'})
+      print("Beginning of for loop. Passing in the message: ", new_message)
+      print()
+
+      response = chatgpt_complete(new_message, max_tokens, model_name, temp, n)
+      response = response['choices'][0]['message']['content']
+      response = response.strip()
+      print("ChatGPT response: ", response)
+
+      confusion_matrix = ["more context", "unclear", "cannot be translated", "clarify", "does not seem to be a valid", "understand", "information"]
+      for word in confusion_matrix:
+        if word in response:
+            print("in here")
+            rewrite_prompts.append(instruction)
+            continue
+      
+      if "Instruction: " not in response:
+          first_if = True
+          print()
+          print("'Instruction: ' not present. First if statement")
+          new_message.append({"role": "assistant", "content": response})
+          new_message.append({"role": "user", "content": "Your response was not in the correct format that I requested. Write the response in the following format: Instruction: {response}. {response} should be replaced with the actual response you want to give. Give me your previous response in this format."})
+          response = chatgpt_complete(new_message, max_tokens, model_name, temp, n)
+          response = response['choices'][0]['message']['content']
+          response = response.strip()
+          print("second response: ", response)
+          print()
+
+      if "Instruction: " not in response:
+          result = instruction
+      else:
+          result = response[response.index("Instruction: ")+len("Instruction: "):]
+          print("result: ", result)
+          print()
+          print()
+
+      rewritten_prompts.append(result)
+
+    return rewritten_prompts
+
 
 if __name__ == '__main__':
     # use [gpt-3.5-turbo]
@@ -298,24 +375,25 @@ if __name__ == '__main__':
     batch_identifier = 1
     #   fold = "fold1"
     size = 0.92
-    seed = 484 # 484 or 123
-    is_cot = True
-    iter_num = "iter6"
+    seed = 123 # 484 or 123
+    is_cot = False
+    iter_num = "iter1"
 
     ### utterance holdout ###
     fold = None
     dataset_path = f'data/holdout_batch{batch_identifier}_noperm/symbolic_batch{batch_identifier}_noperm_utt_{size}_{seed}.pkl'
 
-    # ### type holdout ###
-    # # fold0 and fold1
-    # dataset_path = f'data/holdout_batch{batch_identifier}_noperm/symbolic_batch{batch_identifier}_noperm_ltl_type_2_123_{fold}.pkl'
-
-    # folds = ["fold2", "fold3", "fold4"]
+    # folds = ["fold0", "fold1", "fold2", "fold3", "fold4"]
+    # folds = ["fold0", "fold1"]
     # for fold in folds:
-    # ### formula holdout ###
-    #     dataset_path = f'data/holdout_batch{batch_identifier}_noperm/symbolic_batch{batch_identifier}_noperm_ltl_formula_4_123_{fold}.pkl'
+    #     ### formula holdout ###
+    #     # dataset_path = f'data/holdout_batch{batch_identifier}_noperm/symbolic_batch{batch_identifier}_noperm_ltl_formula_4_123_{fold}.pkl'
 
-    # ###########################################
+    #     ### type holdout ###
+    #     # fold0 and fold1
+    #     dataset_path = f'data/holdout_batch{batch_identifier}_noperm/symbolic_batch{batch_identifier}_noperm_ltl_type_2_123_{fold}.pkl'
+
+    #     # ###########################################
 
     with open(dataset_path, 'rb') as file:
         # dictionary with keys ['smaller_valid', 'smaller_valid_meta', 'holdout_type', 'holdout_meta', 'seed', 'size', 'dataset_size']

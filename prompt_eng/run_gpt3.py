@@ -39,6 +39,12 @@ def run_experiment(dataset_object, max_tokens, model_name, batch_identifier, is_
             # dictionary with keys ['smaller_valid', 'smaller_valid_meta', 'holdout_type', 'holdout_meta', 'seed', 'size', 'dataset_size']
             test_dataset = pickle.load(file)
 
+        # # rewritten instructions for utterance holdout
+        # with open(f"/Users/SamLiang/Desktop/LTL_prompt_eng/prompt_eng/rewritten_instructions_iter6.pkl", 'rb') as file:
+        #     print(f"Using {holdout_type} rewritten dataset\n\n")
+        #     # dictionary with keys ['smaller_valid', 'smaller_valid_meta', 'holdout_type', 'holdout_meta', 'seed', 'size', 'dataset_size']
+        #     test_dataset = pickle.load(file)
+
     validation_meta = dataset_object.get('valid_meta')
 
     seed = dataset_object.get('seed')
@@ -82,20 +88,30 @@ def run_experiment(dataset_object, max_tokens, model_name, batch_identifier, is_
     # with open(plain_prompt_location, 'r') as file:
     #   prompt = file.read()
 
-    if is_cot:
+
+    if iter_num == "prompts_rewritten":
         if holdout_type != "utt":
-            cot_prompt_location = f'data/prompts_batch{batch_identifier}_noperm/CoT_prompt_nexamples1_symbolic_batch{batch_identifier}_noperm_{holdout_type}_{size}_{seed}_{fold}.txt'
+            prompt_location = f'/Users/SamLiang/Desktop/LTL_prompt_eng/prompt_eng/rewritten_prompts_{holdout_type}_{size}_{seed}_{fold}.txt'
         else:
-            cot_prompt_location = f'data/prompts_batch{batch_identifier}_noperm/CoT_prompt_nexamples1_symbolic_batch{batch_identifier}_noperm_{holdout_type}.txt'
-        with open(cot_prompt_location, 'r') as file:
+            prompt_location = f"/Users/SamLiang/Desktop/LTL_prompt_eng/prompt_eng/rewritten_prompts_utterance.txt"
+
+        with open(prompt_location, 'r') as file:
             prompt = file.read()
     else:
-        if holdout_type != "utt":
-            plain_prompt_location = f'data/prompts_batch{batch_identifier}_noperm/prompt_nexamples1_symbolic_batch{batch_identifier}_noperm_{holdout_type}_{size}_{seed}_{fold}.txt'
+        if is_cot:
+            if holdout_type != "utt":
+                cot_prompt_location = f'data/prompts_batch{batch_identifier}_noperm/CoT_prompt_nexamples1_symbolic_batch{batch_identifier}_noperm_{holdout_type}_{size}_{seed}_{fold}.txt'
+            else:
+                cot_prompt_location = f'data/prompts_batch{batch_identifier}_noperm/CoT_prompt_nexamples1_symbolic_batch{batch_identifier}_noperm_{holdout_type}.txt'
+            with open(cot_prompt_location, 'r') as file:
+                prompt = file.read()
         else:
-            plain_prompt_location = f'data/prompts_batch{batch_identifier}_noperm/prompt_nexamples1_symbolic_batch{batch_identifier}_noperm_{holdout_type}.txt'
-        with open(plain_prompt_location, 'r') as file:
-            prompt = file.read()
+            if holdout_type != "utt":
+                plain_prompt_location = f'data/prompts_batch{batch_identifier}_noperm/prompt_nexamples1_symbolic_batch{batch_identifier}_noperm_{holdout_type}_{size}_{seed}_{fold}.txt'
+            else:
+                plain_prompt_location = f'data/prompts_batch{batch_identifier}_noperm/prompt_nexamples1_symbolic_batch{batch_identifier}_noperm_{holdout_type}.txt'
+            with open(plain_prompt_location, 'r') as file:
+                prompt = file.read()
 
     if is_cot:
         if holdout_type == "utt":
@@ -266,21 +282,23 @@ if __name__ == '__main__':
     batch_identifier = 1 # 1
     # fold = "fold0" # set to None if not evaluating type or formula holdout
     size = 0.92 # 0.92
-    seed = 123 # 484 or 123
-    is_cot = True # False or True
-    iter_num = "iter1" # set to None if not using ChatGPT rewritten datasets
+    seed = 484 # 484 or 123
+    is_cot = False # False or True
+    iter_num = "prompts_rewritten" # set to None if not using ChatGPT rewritten datasets
 
     ### utterance holdout ###
+    # fold = None
     # dataset_path = f'data/holdout_batch{batch_identifier}_noperm/symbolic_batch{batch_identifier}_noperm_utt_{size}_{seed}.pkl'
 
-    folds = ["fold0", "fold1", "fold2", "fold3", "fold4"]
+    folds = ["fold0", "fold1"]
     for fold in folds:
         ### type holdout ###
         # fold0 or fold1
-        # dataset_path = f'data/holdout_batch{batch_identifier}_noperm/symbolic_batch{batch_identifier}_noperm_ltl_type_2_123_{fold}.pkl'
+        dataset_path = f'data/holdout_batch{batch_identifier}_noperm/symbolic_batch{batch_identifier}_noperm_ltl_type_2_123_{fold}.pkl'
 
         ### formula holdout ###
-        dataset_path = f'data/holdout_batch{batch_identifier}_noperm/symbolic_batch{batch_identifier}_noperm_ltl_formula_4_123_{fold}.pkl'
+        # "fold0", "fold1", "fold2", "fold3", "fold4"
+        # dataset_path = f'data/holdout_batch{batch_identifier}_noperm/symbolic_batch{batch_identifier}_noperm_ltl_formula_4_123_{fold}.pkl'
 
         ###########################################
 

@@ -1,0 +1,54 @@
+Your task is to translate English instructions into linear temporal logic (LTL) formulas.
+
+Q: What is "Arrive at landmark "a"." in LTL?
+A: Fa
+
+Q: What is "Visit landmarks b and a." in LTL?
+A: Fa & Fb
+
+Q: What is "Visit landmarks c, a, and b in any order." in LTL?
+A: Fa & Fb & Fc
+
+Q: What is "Visit landmark a, then landmark b, and finally landmark c in that order." in LTL?
+A: F(a & F(b & Fc))
+
+Q: What is "Visit landmarks a, b, c, d, and h in sequence." in LTL?
+A: F(a & F(b & F(c & F(d & Fh))))
+
+Q: What is "First, visit landmark a. Then, eventually visit landmark b. Finally, eventually visit landmark c." in LTL?
+A: (!b U a) & (!c U b) & Fc
+
+Q: What is "Visit landmark a exactly once and then visit landmark b while avoiding landmark b until after visiting landmark a." in LTL?
+A: (!b U a) & Fb & (!a U (a U (!a U b)))
+
+Q: What is "Visit landmark a exactly once, then visit landmark b exactly once, and finally visit landmark c. Avoid landmarks b and c while visiting landmark a." in LTL?
+A: (!b U a) & (!c U b) & Fc & (!a U (a U (!a U b))) & (!b U (b U (!b U c)))
+
+Q: What is "Visit a, then b, then c, and finally d. You can only visit each landmark once." in LTL?
+A: (!b U a) & (!c U b) & (!d U c) & Fd & (!a U (a U (!a U b))) & (!b U (b U (!b U c))) & (!c U (c U (!c U d)))
+
+Q: What is "Visit landmarks a, b, c, d, and h in that order without revisiting any landmark." in LTL?
+A: (!b U a) & (!c U b) & (!d U c) & (!h U d) & Fh & (!a U (a U (!a U b))) & (!b U (b U (!b U c))) & (!c U (c U (!c U d))) & (!d U (d U (!d U h)))
+
+Q: What is "First, find landmark a. Then, find landmark b." in LTL?
+A: (!b U a) & Fb
+
+Q: What is "Visit landmark "a" an infinite number of times." in LTL?
+A: GFa
+
+Q: What is "First, go to landmark A. Then, once you have arrived at A, proceed to landmark B. After you have arrived at B, proceed to landmark C. Only once you have arrived at C, proceed to landmark D." in LTL?
+A: (!b U a) & (!c U b) & (!d U c) & Fd
+
+Q: What is "Visit landmark a. Then, visit landmark b only after visiting landmark a. Next, visit landmark c only after both landmark a and b have been visited. After visiting landmarks a, b, and c, visit landmark d. Finally, visit landmark h only after visiting landmarks a, b, c, and d." in LTL?
+A: (!b U a) & (!c U b) & (!d U c) & (!h U d) & Fh
+
+Q: What is "Infinitely visit landmarks a, b, and c in any order." in LTL?
+A: GFa & GFb & GFc
+
+Q: What is "Always visit a, b, c, d, and h in any order infinitely many times." in LTL?
+A: GFa & GFb & GFc & GFd & GFh
+
+Q: What is "Visit landmarks A and B repeatedly." in LTL?
+A: GFa & GFb
+
+Q:

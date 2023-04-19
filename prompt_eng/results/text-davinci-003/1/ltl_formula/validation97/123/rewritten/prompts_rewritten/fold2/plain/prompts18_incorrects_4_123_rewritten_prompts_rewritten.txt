@@ -1,0 +1,27 @@
+Parsed_output, Ground_truth, LTL_type, Num_props, Instruction, Model_output
+
+(!b U a) & Fb, & F a F b, visit, 2, First, visit landmark a. Then, visit landmark b., (!b U a) & Fb
+
+(Fa & Fb) & (!a U b) & (!b U a), & F a F b, visit, 2, Visit either landmark a or landmark b, and then visit the other landmark., (Fa & Fb) & (!a U b) & (!b U a)
+
+F(a & Fb), & F a F b, visit, 2, Visit a and then visit b., F(a & Fb)
+
+F(a & Fb), & F a F b, visit, 2, Reach landmark a, then reach landmark b., F(a & Fb)
+
+F(a & Fb), & F a F b, visit, 2, Visit a and then visit b., F(a & Fb)
+
+(!b U a) & (!c U b) & (!d U c) & Fd & (!a U (a U (!a U b))) & (!b U (b U (!b U c))) & (!c U (c U (!c U d))) & (!d U (d U (!d U h))), & & U ! b a & U ! c b & U ! d c F d & U ! a U a U ! a b & U ! b U b U ! b c U ! c U c U ! c d, strictly_ordered_visit, 4, First, visit landmark A without passing through landmarks B, C, or D. Then, visit landmark B without passing through landmarks C or D. Next, visit landmark C without passing through landmark D. Finally, visit landmark D without revisiting any previous landmarks., (!b U a) & (!c U b) & (!d U c) & Fd & (!a U (a U (!a U b))) & (!b U (b U (!b U c))) & (!c U (c U (!c U d))) & (!d U (d U (!d U h)))
+
+Fa & Fb & Fc, & G F a & G F b G F c, patrolling, 3, Eventually, visit a, b, and c at least once., Fa & Fb & Fc
+
+(!b U a) & (!c U b) & (!d U c) & Fd & (!a U (a U (!a U b))) & (!b U (b U (!b U c))) & (!c U (c U (!c U d))) & (!d U (d U (!d U h))), & & U ! b a & U ! c b & U ! d c F d & U ! a U a U ! a b & U ! b U b U ! b c U ! c U c U ! c d, strictly_ordered_visit, 4, Visit landmark A exactly once, then visit landmark B exactly once, then visit landmark C exactly once, and finally visit landmark D exactly once. Always stay away from landmarks B, C, and D when visiting landmark A. Always stay away from landmarks A, C, and D when visiting landmark B. Always stay away from landmarks A, B, and D when visiting landmark C. Always stay away from landmarks A, B, and C when visiting landmark D., (!b U a) & (!c U b) & (!d U c) & Fd & (!a U (a U (!a U b))) & (!b U (b U (!b U c))) & (!c U (c U (!c U d))) & (!d U (d U (!d U h)))
+
+(!b U !a) & (!c U !a) & (!d U !a) & (!b U a) & (!c U b) & (!d U c) & Fd, & & U ! b a & U ! c b & U ! d c F d & U ! a U a U ! a b & U ! b U b U ! b c U ! c U c U ! c d, strictly_ordered_visit, 4, First, do not approach landmarks b, c, and d. Then, visit landmark a. After visiting a, go directly to landmark b while avoiding landmarks a, c, and d. Next, go directly to landmark c while avoiding landmarks a, b, and d. Finally, go directly to landmark d while avoiding landmarks a, b, and c., (!b U !a) & (!c U !a) & (!d U !a) & (!b U a) & (!c U b) & (!d U c) & Fd
+
+GFb & GFC & GFa, & G F a & G F b G F c, patrolling, 3, Always visit b, then c, and then a repeatedly., GFb & GFC & GFa
+
+F(a U true), F a, visit, 1, Visit a at least once., F(a U true)
+
+F(a & F(b & (!c U (b U (!b U c))) & (!d U c) & Fd)), & & U ! b a & U ! c b & U ! d c F d & U ! a U a U ! a b & U ! b U b U ! b c U ! c U c U ! c d, strictly_ordered_visit, 4, First, visit landmark a once. Then, visit landmark b once while avoiding landmark c. After that, visit landmark c once while avoiding landmark d. Finally, visit landmark d., F(a & F(b & (!c U (b U (!b U c))) & (!d U c) & Fd))
+
+Accuracy: 0.8762886597938144

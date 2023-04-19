@@ -1,0 +1,97 @@
+Fa, F a
+as, F a
+ landmark a" is "Fa", which means "eventually, in the future, landmark a will be visited, F a
+Fa & Fb, & F a F b
+Fb & Fa, & F a F b
+Fa & Fb, & F a F b
+Fa & Fb, & F a F b
+(!b U a) & (!c U b) & (!d U c) & (!a U (a U (!a U b))) & (!b U (b U (!b U c))) & (!c U (c U (!c U d))), & & U ! b a & U ! c b & U ! d c F d & U ! a U a U ! a b & U ! b U b U ! b c U ! c U c U ! c d
+(!b U a) & (!c U b) & (!d U c) & (!a U (a U (!a U b))) & (!b U (b U (!b U c))) & (!c U (c U (!c U d))) & (!d U d), & & U ! b a & U ! c b & U ! d c F d & U ! a U a U ! a b & U ! b U b U ! b c U ! c U c U ! c d
+Fa, F a
+Fa, F a
+Xa, F a
+Fa, F a
+Fa, F a
+Fa & Fb, & F a F b
+Fa & Fb, & F a F b
+Fa & Fb, & F a F b
+Fa & Fb, & F a F b
+(F(a & Fb)) || (F(b & Fa)), & F a F b
+Fa & Fb, & F a F b
+Fa & Fb, & F a F b
+a -> b, & F a F b
+(!a U b) & (!b U a), & F a F b
+Fa & Fb, & F a F b
+Fa, F a
+ can represent it as "a, F a
+Fa, F a
+Fa, F a
+ requires a more detailed description of the system and the behavior that needs to be specifie, F a
+F(a & Fb), & F a F b
+Fa & Fb, & F a F b
+Fa & Fb, & F a F b
+F(a & Fb), & F a F b
+nstruction would simply be "Fa & Fb", which means "eventually visit a and eventually visit b, & F a F b
+(!B & !C & !D U A) & (!C & !D U B) & (!D U C) & G(!A & !B & !C U D), & & U ! b a & U ! c b & U ! d c F d & U ! a U a U ! a b & U ! b U b U ! b c U ! c U c U ! c d
+(!b U a) & (!c U b) & (!d U c) & (!a U (a U (!a U b))) & (!b U (b U (!b U c))) & (!c U (c U (!c U d))), & & U ! b a & U ! c b & U ! d c F d & U ! a U a U ! a b & U ! b U b U ! b c U ! c U c U ! c d
+(!b U a) & (!c U b) & (!d U c) & (!a U (a U (!a U b))) & (!b U (b U (!b U c))) & (!c U (c U (!c U d))), & & U ! b a & U ! c b & U ! d c F d & U ! a U a U ! a b & U ! b U b U ! b c U ! c U c U ! c d
+(a & !b & !c & !d) & (!b U a) & (!c U b) & (!d U c), & & U ! b a & U ! c b & U ! d c F d & U ! a U a U ! a b & U ! b U b U ! b c U ! c U c U ! c d
+(!b U a) & (!c U b) & (!d U c) & (!a U (a U (!a U b))) & (!b U (b U (!b U c))) & (!c U (c U (!c U d))) & (!d U d), & & U ! b a & U ! c b & U ! d c F d & U ! a U a U ! a b & U ! b U b U ! b c U ! c U c U ! c d
+Ga & Gb & Gc, & G F a & G F b G F c
+GF(a & b & c), & G F a & G F b G F c
+ a, then b, then c without interruption" is "G(a -> Fb) & G(b -> Fc), & G F a & G F b G F c
+Ga & Gb & Gc, & G F a & G F b G F c
+G(Fa & Fb & Fc), & G F a & G F b G F c
+Fa, F a
+Fa, F a
+Fa, F a
+Fa & Fb, & F a F b
+Fa & Fb, & F a F b
+Fa & Fb, & F a F b
+G(a & b & c) & (Fa & Fb & Fc), & G F a & G F b G F c
+Ga & Gb & Gc, & G F a & G F b G F c
+Ga & Gb & Gc, & G F a & G F b G F c
+Fa & Fb & Fc, & G F a & G F b G F c
+Ga & Gb & Gc, & G F a & G F b G F c
+G(a & b & c) & F(a & b & c), & G F a & G F b G F c
+Ga & Gb & Gc, & G F a & G F b G F c
+G(a & b & c) & F(a & b & c), & G F a & G F b G F c
+Ga & Gb & Gc, & G F a & G F b G F c
+Fa, F a
+Fa, F a
+Fa, F a
+op at landmark a" can be translated to "a" in LT, F a
+Fa, F a
+Fa & Fb, & F a F b
+Fa & Fb, & F a F b
+Fa & Fb, & F a F b
+Fa & Fb, & F a F b
+Fa & Fb, & F a F b
+G(a & b & c) & F(a & b & c), & G F a & G F b G F c
+Gc & G(c -> Ga) & G((c & a) -> Gb), & G F a & G F b G F c
+, & G F a & G F b G F c
+Gc & G(b -> Fc) & G(a -> (b & Fc)), & G F a & G F b G F c
+G(a & b & c) & F(a & b & c), & G F a & G F b G F c
+(!B & !C & !D U A) & (!A & !C & !D U B) & (!A & !B & !D U C) & (!A & !B & !C U D), & & U ! b a & U ! c b & U ! d c F d & U ! a U a U ! a b & U ! b U b U ! b c U ! c U c U ! c d
+(a & !b & !c & !d) U (b | c | d) & (b & !a & !c & !d) U (a | c | d) & (c & !a & !b & !d) U (a | b | d) & (d & !a & !b & !c) U (a | b | c), & & U ! b a & U ! c b & U ! d c F d & U ! a U a U ! a b & U ! b U b U ! b c U ! c U c U ! c d
+!((b U true) | (c U true) | (d U true)) & Fa & (Fb & !((a U true) | (c U true) | (d U true)))) & (Fc & !((a U true) | (b U true) | (d U true)))) & (Fd & !((a U true) | (b U true) | (c U true)))), & & U ! b a & U ! c b & U ! d c F d & U ! a U a U ! a b & U ! b U b U ! b c U ! c U c U ! c d
+(a & (b & (c & Fd))), & & U ! b a & U ! c b & U ! d c F d & U ! a U a U ! a b & U ! b U b U ! b c U ! c U c U ! c d
+(!b U a) & (!c U b) & (!d U c) & Fd & (!a U (a U (!a U b))) & (!b U (b U (!b U c))) & (!c U (c U (!c U d))), & & U ! b a & U ! c b & U ! d c F d & U ! a U a U ! a b & U ! b U b U ! b c U ! c U c U ! c d
+Ga & Gb & Gc, & G F a & G F b G F c
+Gc & G(c -> Ga) & G((c & a) -> Gb), & G F a & G F b G F c
+G(b -> X(c -> Xa)), & G F a & G F b G F c
+Gb & Ga & Gc, & G F a & G F b G F c
+Fa, F a
+Fa, F a
+Fa, F a
+Fa, F a
+Fa, F a
+(!b U a) & (!c U b) & (!d U c) & (!a U (a U (!a U b))) & (!b U (b U (!b U c))) & (!c U (c U (!c U d))), & & U ! b a & U ! c b & U ! d c F d & U ! a U a U ! a b & U ! b U b U ! b c U ! c U c U ! c d
+(!b U a) & (!c U b) & (!d U c) & (!a U (a U (!a U (b | d)))) & (!b U (b & (!a U (!b U c)) & (!c U (!b U d)))) & (!c U (c & (!b U (!c U d)))) & (!d U d), & & U ! b a & U ! c b & U ! d c F d & U ! a U a U ! a b & U ! b U b U ! b c U ! c U c U ! c d
+(!b U a) & (!b U c) & (!d U c) & (!a U (a U (!a U b))) & (!b U (b U (!b U c))) & (!c U (c U (!c U d))), & & U ! b a & U ! c b & U ! d c F d & U ! a U a U ! a b & U ! b U b U ! b c U ! c U c U ! c d
+(!b U a) & (!c U b) & (!d U c) & (!a U (a U (!a U b))) & (!b U (b U (!b U c))) & (!c U (c U (!c U d))), & & U ! b a & U ! c b & U ! d c F d & U ! a U a U ! a b & U ! b U b U ! b c U ! c U c U ! c d
+(!b U a) & (!c U b) & (!d U c) & (!a U (a U (!a U b))) & (!b U (b U (!b U c))) & (!c U (c U (!c U d))) & (!d U d), & & U ! b a & U ! c b & U ! d c F d & U ! a U a U ! a b & U ! b U b U ! b c U ! c U c U ! c d
+G(a -> !b) & G(b -> !c) & G(c -> !d) & Fd, & & U ! b a & U ! c b & U ! d c F d & U ! a U a U ! a b & U ! b U b U ! b c U ! c U c U ! c d
+(!a U (a & (!b U (!c U (!d U true))))) & (!b U (b & (!c U (!d U true)))) & (!c U (c & (!d U true))) & Fd, & & U ! b a & U ! c b & U ! d c F d & U ! a U a U ! a b & U ! b U b U ! b c U ! c U c U ! c d
+(!b U (a & !c)) & (!c U (b & !d)) & (!a U (a U (!a U b))) & (!b U (b U (!b U c))) & (!c U (c U (!c U d))) & (!d U (d U (!d))), & & U ! b a & U ! c b & U ! d c F d & U ! a U a U ! a b & U ! b U b U ! b c U ! c U c U ! c d
+(!b U a) & (!c U b) & (!d U c) & (!a U (a U (!a U b))) & (!b U (b U (!b U c))) & (!c U (c U (!c U d))) & G(!a & !b & !c & !d), & & U ! b a & U ! c b & U ! d c F d & U ! a U a U ! a b & U ! b U b U ! b c U ! c U c U ! c d

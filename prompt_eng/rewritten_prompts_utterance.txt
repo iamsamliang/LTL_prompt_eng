@@ -1,0 +1,60 @@
+Your task is to translate English instructions into linear temporal logic (LTL) formulas.
+
+Q: What is "Arrive at landmark a." in LTL?
+A: Fa
+
+Q: What is "Visit landmarks c, a, and b in any order." in LTL?
+A: Fa & Fb & Fc
+
+Q: What is "Visit landmarks a, b, c, and d in any order." in LTL?
+A: Fa & Fb & Fc & Fd
+
+Q: What is "Visit landmarks a, b, c, d, and h." in LTL?
+A: Fa & Fb & Fc & Fd & Fh
+
+Q: What is "Visit a, then visit b." in LTL?
+A: F(a & F(a & Fb))
+
+Q: What is "Visit landmark a, then landmark b, and finally landmark c in that order." in LTL?
+A: F(a & F(b & Fc))
+
+Q: What is "Visit a, then visit b after visiting a, then visit c after visiting b, and finally visit d after visiting c." in LTL?
+A: F(a & F(b & F(c & Fd)))
+
+Q: What is "Visit a, then visit b, then visit c, then visit d, and finally visit h." in LTL?
+A: F(a & F(b & F(c & F(d & Fh))))
+
+Q: What is "Visit landmarks a, b, and c in the following order: a, then b, then c. Do not visit b until you have visited a, and do not visit c until you have visited both a and b." in LTL?
+A: (!b U a) & (!c U b) & Fc
+
+Q: What is "Visit landmark A once and then visit landmark B while avoiding landmark A." in LTL?
+A: (!b U a) & Fb & (!a U (a U (!a U b)))
+
+Q: What is "Visit a, then visit b, then visit c. Do not revisit any previous location while heading to the next one." in LTL?
+A: (!b U a) & (!c U b) & Fc & (!a U (a U (!a U b))) & (!b U (b U (!b U c)))
+
+Q: What is "Visit landmark a, then visit landmark b, then visit landmark c, and finally visit landmark d. Do not revisit any landmark while traveling to the next one." in LTL?
+A: (!b U a) & (!c U b) & (!d U c) & Fd & (!a U (a U (!a U b))) & (!b U (b U (!b U c))) & (!c U (c U (!c U d)))
+
+Q: What is "Visit landmarks in the following order: a, b, c, d, h. Do not revisit any landmark. Only visit h after visiting d, visit d after visiting c, visit c after visiting b, and visit b after visiting a." in LTL?
+A: (!b U a) & (!c U b) & (!d U c) & (!h U d) & Fh & (!a U (a U (!a U b))) & (!b U (b U (!b U c))) & (!c U (c U (!c U d))) & (!d U (d U (!d U h)))
+
+Q: What is "First, find landmark a. Then, find landmark b." in LTL?
+A: (!b U a) & Fb
+
+Q: What is "Always visit a in the future." in LTL?
+A: GFa
+
+Q: What is "Visit landmark A multiple times while avoiding landmarks B, C, and D. Then, visit landmark B multiple times while avoiding landmarks C and D. Next, visit landmark C multiple times while avoiding landmark D. Finally, visit landmark D." in LTL?
+A: (!b U a) & (!c U b) & (!d U c) & Fd
+
+Q: What is "Visit landmarks in the following order: a, b, c, d, and h. Do not visit h until d is visited, do not visit d until c is visited, do not visit c until b is visited, and do not visit b until a is visited." in LTL?
+A: (!b U a) & (!c U b) & (!d U c) & (!h U d) & Fh
+
+Q: What is "Visit landmarks a, b, and c in any order repeatedly." in LTL?
+A: GFa & GFb & GFc
+
+Q: What is "Visit landmarks a, b, h, d, and c repeatedly without any restrictions." in LTL?
+A: GFa & GFb & GFc & GFd & GFh
+
+Q:
